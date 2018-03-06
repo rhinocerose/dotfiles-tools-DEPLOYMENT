@@ -184,6 +184,10 @@ vmap <C-f> <ESC><Plug>(easymotion-sn)
 " Disable highlighting when in insert mode
 autocmd InsertEnter * :set nohlsearch
 
+" Markdown preview
+" Use <Leader>m
+Plugin 'MikeCoder/markdown-preview.vim'
+
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

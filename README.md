@@ -58,7 +58,8 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - jedi ([deoplete-jedi](https://github.com/zchee/deoplete-jedi))
     - ansible-lint ([ale](https://github.com/w0rp/ale))
     - autopep8 ([vim-autoformat](https://github.com/Chiel92/vim-autoformat))
-   - unidecode ([ultisnips](https://github.com/SirVer/ultisnips.git))
+    - unidecode ([ultisnips](https://github.com/SirVer/ultisnips.git))
+    - future ([markdown-preview](https://github.com/MikeCoder/markdown-preview.vim))
 
 # Arch
 
@@ -252,6 +253,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [fzf](https://github.com/junegunn/fzf.git)
 - [fzf.vim](https://github.com/junegunn/fzf.vim.git)
 - [indentLine](https://github.com/Yggdroot/indentLine.git)
+- [markdown-preview.vim](https://github.com/MikeCoder/markdown-preview.vim.git)
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter.git)
 - [nerdtree](https://github.com/scrooloose/nerdtree.git)
 - [tagbar](https://github.com/majutsushi/tagbar.git)
