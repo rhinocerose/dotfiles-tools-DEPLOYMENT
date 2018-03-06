@@ -1,0 +1,64 @@
+#  .__                                   ._.
+#  |__| ____    ____   ___________   ____| |
+#  |  |/    \  / ___\ /  _ \_  __ \_/ __ \ |
+#  |  |   |  \/ /_/  >  <_> )  | \/\  ___/\|
+#  |__|___|  /\___  / \____/|__|    \___  >_
+#          \//_____/                    \/\/
+
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+.extra
+.gitconfig
+.gnupg
+!.gnupg/gpg*.conf
+.i3/logfile
+.nginx/conf.d/*
+
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.pyc
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build Folders
+cmake-build-debug/
+cmake-build-release/
+DEBUG
+RELEASE
+
+# User-specific stuff:
+**/.idea/

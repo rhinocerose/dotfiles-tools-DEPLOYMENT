@@ -1,0 +1,379 @@
+#       ___.                                 .__
+#   __ _\_ |__   ___________  ________  _____|  |__
+#  |  |  \ __ \_/ __ \_  __ \ \___   / /  ___/  |  \
+#  |  |  / \_\ \  ___/|  | \/  /    /  \___ \|   Y  \
+#  |____/|___  /\___  >__|    /_____ \/____  >___|  /
+#            \/     \/              \/     \/     \/
+# by ps
+
+#    _____                    __  .__
+#  _/ ____\_ __  ____   _____/  |_|__| ____   ____   ______
+#  \   __\  |  \/    \_/ ___\   __\  |/  _ \ /    \ /  ___/
+#   |  | |  |  /   |  \  \___|  | |  (  <_> )   |  \\___ \
+#   |__| |____/|___|  /\___  >__| |__|\____/|___|  /____  >
+#                   \/     \/                    \/     \/
+
+# Browse chrome history
+# https://junegunn.kr/2015/04/browsing-chrome-history-with-fzf/
+chistory() {
+    local cols sep
+        cols=$(( COLUMNS / 3 ))
+        sep='{::}'
+
+        cp -f ~/.config/chromium/Default/History /tmp/h
+
+        sqlite3 -separator $sep /tmp/h \
+        "select substr(title, 1, $cols), url
+        from urls order by last_visit_time desc" |
+        awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
+        fzf --ansi --multi | sed 's#.*\(https*://\)#\1#'
+}
+
+function pdfgrep() {
+    # shellcheck disable=SC2156
+    find . -name '*.pdf' -exec sh -c '/usr/bin/pdftotext "{}" - | grep --with-filename --label="{}" --color '"$1" \;
+}
+
+
+# compare two files by md5
+function hashcompare() {
+    if [ "$#" -ne 2 ]; then
+        echo "Please supply two files <:"
+    else
+        sum1=$(md5sum "$1" | cut -d " " -f1)
+            sum2=$(md5sum "$2" | cut -d " " -f1)
+
+            if [ "$sum1" = "$sum2" ]; then
+                echo "identical"
+            else
+                echo "different"
+            fi
+    fi
+}
+
+# ls stuff
+# overwrite ll
+unalias ll
+alias ll='ls -la'
+
+# list dirs
+alias lsd="ls -lF --color | grep --color=never '^d'"
+
+# jump and sublime
+function quicksublime {
+    j "$1" && subl3 .
+}
+
+# cd and ls
+alias cd="cl"
+function cl {
+	if [ "$#" -eq 0 ]; then
+		"cd" || return
+	else
+	    "cd" "$1" || return
+	fi
+    ls -la --color=auto
+}
+
+# find
+alias f='quickfind'
+function quickfind {
+    find . -name "*$1*"
+}
+
+# grep
+alias g='quickgrep'
+function quickgrep {
+    grep -R "$1"
+}
+
+# ps aux and grep
+alias pg="pg"
+function pg {
+    pgrep -fa "$1" | grep -E --color "$1"
+}
+
+# Search for files and page it
+function s() { find . -iname "*$**" | less; }
+
+# Create a new directory and enter it
+mkd() {
+    mkdir -p "$@"
+        cd "$@" || exit
+}
+
+# Make a temporary directory and enter it
+tmpd() {
+    local dir
+        if [ $# -eq 0 ]; then
+            dir=$(mktemp -d)
+        else
+            dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+                fi
+                cd "$dir" || exit
+}
+
+# Determine size of a file or total size of a directory
+fs() {
+    if du -b /dev/null > /dev/null 2>&1; then
+        local arg=-sbh
+    else
+        local arg=-sh
+            fi
+# shellcheck disable=SC2199
+            if [[ -n "$@" ]]; then
+                du $arg -- "$@"
+            else
+                du $arg -- .[^.]* *
+                    fi
+}
+
+# Create encrypted archives using 7zip
+mkzip() {
+    7z -mhe=on -p a "$@"
+}
+
+#  ___.                         __  .__  _____
+#  \_ |__   ____ _____   __ ___/  |_|__|/ ____\__.__.
+#   | __ \_/ __ \\__  \ |  |  \   __\  \   __<   |  |
+#   | \_\ \  ___/ / __ \|  |  /|  | |  ||  |  \___  |
+#   |___  /\___  >____  /____/ |__| |__||__|  / ____|
+#       \/     \/     \/                      \/
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+tre() {
+    tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+}
+
+# Always enable colored `grep` output
+alias grep='grep --color=auto '
+
+alias cat='prettycat'
+function prettycat {
+    if [[ $(awk 'END {print NR}' "$1") -gt 500 ]]
+        then
+            "cat" "$1"
+    else
+        pygmentize -g -O bg=dark,style=colorful "$1"
+            fi
+}
+
+# parse manpages --> 2x tab: show, 3x tab: navigate
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+
+#
+#    ____ ______   ____   ____   ___________  ______
+#   /  _ \\____ \_/ __ \ /    \_/ __ \_  __ \/  ___/
+#  (  <_> )  |_> >  ___/|   |  \  ___/|  | \/\___ \
+#   \____/|   __/ \___  >___|  /\___  >__|  /____  >
+#         |__|        \/     \/     \/           \/
+
+alias -s cpp=subl3
+alias -s h=subl3
+alias -s tex=subl3
+alias -s pdf=masterpdfeditor4
+
+#                .__
+#    ______ _____|  |__
+#   /  ___//  ___/  |  \
+#   \___ \ \___ \|   Y  \
+#  /____  >____  >___|  /
+#       \/     \/     \/
+
+function _sshportforward {
+    if [ $# -ne 2 ]; then
+        echo "$0 localport:localhost:remoteport user@host"
+        return
+    fi
+    # shellcheck disable=SC2029
+    ssh -L "$1" "$2"
+
+}
+alias sshportforward="_sshportforward"
+
+#          .__
+#    _____ |__| ______ ____
+#   /     \|  |/  ___// ___\
+#  |  Y Y  \  |\___ \\  \___
+#  |__|_|  /__/____  >\___  >
+#        \/        \/     \/
+
+
+# elite mode
+alias nano="nvim"
+alias v="nvim"
+alias vim="nvim"
+
+alias sl="subl3"
+alias pass="pass -c"
+
+alias cp="cp -r"
+alias mkdir="mkdir -p"
+
+alias n="nautilus . &"
+
+#
+#  _____________  _______  ______.__.
+#  \____ \_  __ \/  _ \  \/  <   |  |
+#  |  |_> >  | \(  <_> >    < \___  |
+#  |   __/|__|   \____/__/\_ \/ ____|
+#  |__|                     \/\/
+
+function socksproxyon {
+
+#if [ $(id -u) -ne 0 ]; then
+#  echo "This script must be run as root";
+#  return;
+#fi
+
+    if [ $# -eq 2 ]
+        then
+            gsettings set org.gnome.system.proxy mode 'manual'
+            gsettings set org.gnome.system.proxy.socks host "$1"
+            gsettings set org.gnome.system.proxy.socks port "$2"
+
+
+# grep PATH /etc/environment > /tmp/nm.t;
+# printf \
+# "http_proxy=http://$1:$2/\n\
+# https_proxy=http://$1:$2/\n\
+# ftp_proxy=http://$1:$2/\n\
+# no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
+# HTTP_PROXY=http://$1:$2/\n\
+# HTTPS_PROXY=http://$1:$2/\n\
+# FTP_PROXY=http://$1:$2/\n\
+# NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
+
+# cat /tmp/nm.t > /etc/environment;
+
+
+# printf \
+# "Acquire::http::proxy \"http://$1:$2/\";\n\
+# Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
+# Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
+
+# rm -rf /tmp/nm.t;
+
+    else
+        echo "Usage $0 <proxy_ip> <proxy_port>";
+
+    fi
+}
+
+function httpproxyon {
+#if [ $(id -u) -ne 0 ]; then
+#  echo "This script must be run as root";
+#  return;
+#fi
+
+    if [ $# -eq 2 ]
+        then
+
+            gsettings set org.gnome.system.proxy mode 'manual' ;
+    gsettings set org.gnome.system.proxy.http host "$1";
+    gsettings set org.gnome.system.proxy.http port "$2";
+
+
+# grep PATH /etc/environment > /tmp/nm.t;
+# printf \
+# "http_proxy=http://$1:$2/\n\
+# https_proxy=http://$1:$2/\n\
+# ftp_proxy=http://$1:$2/\n\
+# no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
+# HTTP_PROXY=http://$1:$2/\n\
+# HTTPS_PROXY=http://$1:$2/\n\
+# FTP_PROXY=http://$1:$2/\n\
+# NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
+
+# cat /tmp/nm.t > /etc/environment;
+
+
+# printf \
+# "Acquire::http::proxy \"http://$1:$2/\";\n\
+# Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
+# Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
+
+# rm -rf /tmp/nm.t;
+
+    else
+        echo "Usage $0 '<proxy_ip>' <proxy_port>";
+
+    fi
+}
+
+function proxyoff {
+#if [ $(id -u) -ne 0 ]; then
+#  echo "This script must be run as root";
+#  return;
+#fi
+
+    gsettings set org.gnome.system.proxy mode 'none' ;
+
+# grep PATH /etc/environment > /tmp/nm.t;
+# cat /tmp/nm.t > /etc/environment;
+
+# printf "" > /etc/apt/apt.conf.d/95proxies;
+
+# rm -rf /tmp/nm.t;
+}
+
+# presentation mode
+alias presmode="xrandr --output \$INTERNAL_OUTPUT --auto --output \$EXTERNAL_OUTPUT --auto --left-of \$INTERNAL_OUTPUT"
+
+# Do something and receive a desktop alert when it completes, e.g. `sudo apt-get install something; alert`
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Don't rm -- put it in the trash if possible
+alias rm='safedelete'
+function safedelete {
+    if which gio > /dev/null; then
+        for f in "$@"
+        do
+            gio trash -f "$f"
+        done
+
+    elif which gvfs-trash > /dev/null; then
+        for f in "$@"
+        do
+            gvfs-trash "$f"
+        done
+
+    else
+        for f in "$@"
+        do
+			# shellcheck disable=SC1012
+            \rm "$f"
+        done
+    fi
+}
+
+# Clipboard
+# pipe into ccopy --> clipboard
+alias ccopy='xclip -selection clipboard'
+# paste with cpaste
+alias cpaste='xclip -selection clipboard -o'
+
+# Directory shortcuts
+alias dl="cd ~/Downloads"
+
+# IP addresses
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+
+# View HTTP traffic
+# shellcheck disable=SC2142
+alias sniff="sudo ngrep -d \$(ip -o link show | awk '{print \$2,\$9}' | grep UP | cut -f1 -d \" \" | cut -f1 -d \":\" | grep -v \"docker\" ) -t '^(GET|POST) ' 'tcp and port 80'"
+
+
+#                      .__  .__
+#   __ __  ____ _____  |  | |__|____    ______
+#  |  |  \/    \\__  \ |  | |  \__  \  /  ___/
+#  |  |  /   |  \/ __ \|  |_|  |/ __ \_\___ \
+#  |____/|___|  (____  /____/__(____  /____  >
+#             \/     \/             \/     \/

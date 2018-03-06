@@ -1,0 +1,99 @@
+#!/bin/bash
+#                                       __
+#    ____ ___  _________   ____________/  |_  ______
+#  _/ __ \\  \/  /\____ \ /  _ \_  __ \   __\/  ___/
+#  \  ___/ >    < |  |_> >  <_> )  | \/|  |  \___ \
+#   \___  >__/\_ \|   __/ \____/|__|   |__| /____  >
+#       \/      \/|__|                           \/
+# by ps
+
+if which termite >/dev/null 2>&1; then
+    export TERMINAL=termite
+    export TERMINALWINDOWCLASS=Termite
+    export TERM=xterm-termite
+else
+    export TERM=xterm
+fi
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export BROWSER=chromium
+export BROWSERWINDOWCLASS=Chromium
+
+export FILEMANAGER=nautilus
+export FILEMANAGERWINDOWCLASS=Nautilus
+
+#                 .__
+#  ________  _____|  |__
+#  \___   / /  ___/  |  \
+#   /    /  \___ \|   Y  \
+#  /_____ \/____  >___|  /
+#        \/     \/     \/
+
+export UPDATE_ZSH_DAYS=7
+
+
+
+#             .___.__  __
+#    ____   __| _/|__|/  |_  ___________
+#  _/ __ \ / __ | |  \   __\/  _ \_  __ \
+#  \  ___// /_/ | |  ||  | (  <_> )  | \/
+#   \___  >____ | |__||__|  \____/|__|
+#       \/     \/
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+
+#  .__    .__          __
+#  |  |__ |__| _______/  |_  ___________ ___.__.
+#  |  |  \|  |/  ___/\   __\/  _ \_  __ <   |  |
+#  |   Y  \  |\___ \  |  | (  <_> )  | \/\___  |
+#  |___|  /__/____  > |__|  \____/|__|   / ____|
+#       \/        \/                     \/
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=50000000;
+export HISTFILESIZE=$HISTSIZE;
+export HISTCONTROL=ignoredups;
+# Make some commands not show up in history
+export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h:pony:pony add *:pony update *:pony save *:pony ls:pony ls *";
+
+
+#  .__
+#  |  | _____    ____    ____
+#  |  | \__  \  /    \  / ___\
+#  |  |__/ __ \|   |  \/ /_/  >
+#  |____(____  /___|  /\___  /
+#            \/     \//_____/
+
+# Prefer US English and use UTF-8
+export LANG="en_US.UTF-8";
+export LC_ALL="en_US.UTF-8";
+
+
+
+#    _____          _____
+#  _/ ____\________/ ____\
+#  \   __\\___   /\   __\
+#   |  |   /    /  |  |
+#   |__|  /_____ \ |__|
+#               \/
+# for custom keybindings see .bindings!
+export FZF_DEFAULT_OPTS="
+--color fg:242,bg:233,hl:65,fg+:15,bg+:234,hl+:108
+--color info:108,prompt:109,spinner:108,pointer:168,marker:168
+--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'
+--bind alt-j:down,alt-k:up
+"
+
+
+#          .__
+#    _____ |__| ______ ____
+#   /     \|  |/  ___// ___\
+#  |  Y Y  \  |\___ \\  \___
+#  |__|_|  /__/____  >\___  >
+#        \/        \/     \/
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X";

@@ -1,0 +1,29 @@
+#!/bin/bash
+#   ____________ _________________      .___             __
+#  /_   \_____  \\_____  \______  \   __| _/____   ____ |  | __ ___________
+#   |   | _(__  <  _(__  <   /    /  / __ |/  _ \_/ ___\|  |/ // __ \_  __ \
+#   |   |/       \/       \ /    /  / /_/ (  <_> )  \___|    <\  ___/|  | \/
+#   |___/______  /______  //____/   \____ |\____/ \___  >__|_ \\___  >__|
+#              \/       \/               \/           \/     \/    \/
+# by ps
+
+
+# Aliases
+alias docker='sudo docker'
+alias dps="docker ps && echo && docker ps -a | grep Exited | wc -l && echo containers exited"
+
+#
+# Helper Functions
+#
+dcleanup(){
+    docker system prune
+}
+dstopped(){
+    local name=$1
+    local state
+    state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
+
+    if [[ "$state" == "false" ]]; then
+        docker rm "$name"
+    fi
+}

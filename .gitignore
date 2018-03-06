@@ -1,0 +1,15 @@
+# Dont push sublime PackageManager cache and last-run
+**/Package Control.cache/
+**/Package Control.last-run
+
+# guake gconf
+**/%gconf.xml
+
+**/__pycache__
+
+**/secrets*
+
+**/pushIt.sh
+**/linkInfo*
+**/createSymlinks.py
+**/dotfile-tools

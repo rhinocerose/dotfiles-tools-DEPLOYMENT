@@ -1,0 +1,30 @@
+#!/bin/bash
+#                 .__      ___.   .__            .___.__
+#  ________  _____|  |__   \_ |__ |__| ____    __| _/|__| ____    ____  ______
+#  \___   / /  ___/  |  \   | __ \|  |/    \  / __ | |  |/    \  / ___\/  ___/
+#   /    /  \___ \|   Y  \  | \_\ \  |   |  \/ /_/ | |  |   |  \/ /_/  >___ \
+#  /_____ \/____  >___|  /  |___  /__|___|  /\____ | |__|___|  /\___  /____  >
+#        \/     \/     \/       \/        \/      \/         \//_____/     \/
+
+
+# backward and forward word with SHIFT + ARROW
+# key codes determined using cat
+bindkey "^[[1;2C" forward-word
+bindkey "^[[1;2D" backward-word
+
+# fzf: override ctrl+t --> ctrl+w using homefolder
+fzf-homefolder() {
+  ~
+  LBUFFER="${LBUFFER}~/$(__fsel)"
+  local ret=$?
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  # shellcheck disable=SC1001,SC2164
+  \cd -
+  return $ret
+}
+zle     -N   fzf-homefolder
+bindkey '^A' fzf-homefolder
+
+# delete current word with ctrl+w
+bindkey "^W" backward-kill-word

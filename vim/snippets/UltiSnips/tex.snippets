@@ -1,0 +1,80 @@
+priority -1
+snippet includegr
+\begin{figure}[H]
+\centering
+    \includegraphics[width=\textwidth]{$1}
+    \caption{$2}
+\end{figure}
+endsnippet
+
+priority -1
+snippet frame
+\frame{\frametitle{$1}
+
+$0
+
+\note {
+}
+
+}
+endsnippet
+
+priority -1
+snippet book
+@BOOK{$1,
+  AUTHOR       = "$2",
+  TITLE        = "$3",
+  PUBLISHER    = "$4",
+  YEAR         = "$5",
+  ISBN         = "$6",
+},
+endsnippet
+
+priority -1
+snippet misc
+@Misc{$1,
+    key = {$2},
+    shorthand = {$3},
+    author = {$4},
+    title = {$5},
+    note = {Eingesehen: `date '+%d.%m.%Y %H:%M'` Uhr},
+    url = {$6},
+},
+endsnippet
+
+priority -1
+snippet lst
+\begin{lstlisting}[caption= $1: $2, captionpos=b]
+$0
+\end{lstlisting}
+endsnippet
+
+priority -1
+snippet tt
+\texttt{$0}
+endsnippet
+
+priority -1
+snippet bf
+\textbf{$0}
+endsnippet
+
+priority -1
+snippet it
+\textit{$0}
+endsnippet
+
+priority -1
+snippet em
+\emph{$0}
+endsnippet
+
+priority -1
+snippet rightar
+$\rightarrow$
+endsnippet
+
+priority -1
+snippet leftar
+$\leftarrow$
+endsnippet

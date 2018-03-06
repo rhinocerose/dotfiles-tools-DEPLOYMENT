@@ -1,0 +1,17 @@
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+before_script:
+  - sudo apt update && sudo apt -y install curl
+
+script:
+  - make test
+
+after_success:
+  - curl -iX GET "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHATID&text=Dotfiles OK" 2>&1 >/dev/null
+
+after_failure:
+  - curl -iX GET "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHATID&text=Dotfiles failed" 2>&1 >/dev/null
