@@ -7,7 +7,7 @@
 
 </pre>
 
-[![Build Status](https://travis-ci.org/0xBANANA/Dotfiles.png?branch=master)](https://travis-ci.org/0xBANANA/Dotfiles)
+[![Build Status](https://travis-ci.org/ps1337/Dotfiles.png?branch=master)](https://travis-ci.org/ps1337/Dotfiles)
 
 These dotfiles and all dependencies can be installed automatically using my [Dotfile-tools](https://github.com/BananaFett/Dotfile-tools).
 
@@ -67,6 +67,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 - Via package manager
     - chromium
+    - perl (cower)
     - python
     - python-pip
     - python2
