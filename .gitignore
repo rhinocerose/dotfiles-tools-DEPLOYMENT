@@ -7,9 +7,11 @@
 
 **/__pycache__
 
-**/secrets*
+**secrets*
 
 **/pushIt.sh
 **/linkInfo*
 **/createSymlinks.py
 **/dotfile-tools
+
+fzf.zsh

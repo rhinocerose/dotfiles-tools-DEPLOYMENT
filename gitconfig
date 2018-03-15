@@ -16,8 +16,8 @@
     ca = !git add -A && git commit -av
 
     # commit and push all changes
-    pca = !git status -s && echo "OK?" && read && git add -A && git commit -av && git push
-    cap = !git status -s && echo "OK?" && read && git add -A && git commit -av && git push
+    pca = !bash -c 'git status -s && echo "OK?" && read && git add -A && git commit -av && git push'
+    cap = !bash -c 'git status -s && echo "OK?" && read && git add -A && git commit -av && git push'
 
     # clone
     c = clone
