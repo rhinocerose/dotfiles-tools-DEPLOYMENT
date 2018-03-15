@@ -104,6 +104,9 @@ for_window [class="^BKPOPENJK$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="^Rambox$"] border none
 for_window [class="^Psi-plus$"] border none
+for_window [class="^Chromium$"] border none
+for_window [class="^Chrome$"] border none
+for_window [class="^Firefox$"] border none
 
 # cycle workspaces
 bindsym $mod+Tab workspace prev
