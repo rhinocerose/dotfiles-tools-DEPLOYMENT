@@ -177,6 +177,8 @@ alias -s cpp=subl3
 alias -s h=subl3
 alias -s tex=subl3
 alias -s pdf=masterpdfeditor4
+alias e="nohup evince *.pdf  &> /dev/null &!"
+alias v="nvim ."
 
 #                .__
 #    ______ _____|  |__
@@ -206,8 +208,8 @@ alias sshportforward="_sshportforward"
 
 # elite mode
 alias nano="nvim"
-alias v="nvim"
 alias vim="nvim"
+alias vi="nvim"
 
 alias sl="subl3"
 alias pass="pass -c"

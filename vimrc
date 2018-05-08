@@ -2,10 +2,10 @@ set nocompatible " required
 set termguicolors
 set t_Co=256
 
-" On pressing tab, insert 3 spaces
+set tabstop=8
+set softtabstop=0
 set expandtab
-
-" Cause backspace to backspace over expanded tabs
+set shiftwidth=4
 set smarttab
 
 " Set case sensitivity on searches
@@ -23,11 +23,6 @@ set mouse=a
 "enable UTF-8
 set encoding=utf-8
 set go+=a " Visual selection automatically copied to the clipboard
-
-" show existing tab with 3 spaces width
-set tabstop=3
-" when indenting with '>', use 3 spaces width
-set shiftwidth=3
 
 filetype    off          " required
 
@@ -237,11 +232,11 @@ autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '
 autocmd filetype ada nnoremap <F5> :w <bar> exec '!gnatmake '.shellescape('%').' && ./'.shellescape('%:r')<CR>
 
 " Auto enable spell checking
-au BufNewFile, BufRead, BufEnter   *.wiki    setlocal spell    spelllang=en_us
-au BufNewFile, BufRead, BufEnter   *.md      setlocal spell    spelllang=en_us
-au BufNewFile, BufRead, BufEnter   *.txt     setlocal spell    spelllang=en_us
-au BufNewFile, BufRead, BufEnter   *.tex     setlocal spell    spelllang=de_de
-au BufNewFile, BufRead, BufEnter   README    setlocal spell    spelllang=en_us
+autocmd BufNewFile, BufRead, BufEnter   *.wiki    setlocal spell    spelllang=en
+autocmd BufNewFile, BufRead, BufEnter   *.md      setlocal spell    spelllang=en
+autocmd BufNewFile, BufRead, BufEnter   *.txt     setlocal spell    spelllang=en
+autocmd BufNewFile, BufRead, BufEnter   *.tex     setlocal spell    spelllang=de
+autocmd BufNewFile, BufRead, BufEnter   README    setlocal spell    spelllang=en
 
 " Open nerdtree if no file was specified
 "function! StartUp()
