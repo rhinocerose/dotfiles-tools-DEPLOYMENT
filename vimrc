@@ -65,7 +65,7 @@ Plugin 'w0rp/ale'
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
 " hide *.pyc from nerdtree
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
 Plugin 'jistr/vim-nerdtree-tabs'
 
 " git integration
