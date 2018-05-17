@@ -18,50 +18,52 @@
 # https://junegunn.kr/2015/04/browsing-chrome-history-with-fzf/
 chistory() {
     local cols sep
-        cols=$(( COLUMNS / 3 ))
-        sep='{::}'
+    cols=$(( COLUMNS / 3 ))
+    sep='{::}'
 
-        cp -f ~/.config/chromium/Default/History /tmp/h
+    cp -f ~/.config/chromium/Default/History /tmp/h
 
-        sqlite3 -separator $sep /tmp/h \
+    sqlite3 -separator $sep /tmp/h \
         "select substr(title, 1, $cols), url
-        from urls order by last_visit_time desc" |
+    from urls order by last_visit_time desc" |
         awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
         fzf --ansi --multi | sed 's#.*\(https*://\)#\1#'
 }
 
 # Web search from terminal
 function _web_search() {
-  emulate -L zsh
+    emulate -L zsh
 
-  # define search engine URLS
-  typeset -A urls
-  urls=(
-    google      "https://www.google.com/search?q="
-    duckduckgo  "https://www.duckduckgo.com/?q="
-    startpage   "https://www.startpage.com/do/search?q="
-    github      "https://github.com/search?q="
-  )
+    # define search engine URLS
+    typeset -A urls
+    urls=(
+    [google]="https://www.google.com/search?q="
+    [duckduckgo]="https://www.duckduckgo.com/?q="
+    [startpage]="https://www.startpage.com/do/search?q="
+    [github]="https://github.com/search?q="
+    )
 
-  # check whether the search engine is supported
-  if [[ -z "$urls[$1]" ]]; then
-    echo "Search engine $1 not supported."
-    return 1
-  fi
+    # check whether the search engine is supported
+    if [[ -z "${urls[$1]}" ]]; then
+        echo "Search engine $1 not supported."
+        return 1
+    fi
 
-  # search or go to main page depending on number of arguments passed
-  if [[ $# -gt 1 ]]; then
-    # build search url:
-    # join arguments passed with '+', then append to search engine URL
-    url="${urls[$1]}${(j:+:)@[2,-1]}"
-  else
-    # build main page url:
-    # split by '/', then rejoin protocol (1) and domain (2) parts with '//'
-    url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
-  fi
+    # search or go to main page depending on number of arguments passed
+    if [[ $# -gt 1 ]]; then
+        # build search url:
+        # join arguments passed with '+', then append to search engine URL
+        # shellcheck disable=SC2154
+        url="${urls[$1]}${(j:+:)@[2,-1]}"
+    else
+        # build main page url:
+        # split by '/', then rejoin protocol (1) and domain (2) parts with '//'
+        # shellcheck disable=SC2154
+        url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
+    fi
 
-  open_command "$url"
-  return 0
+    open_command "$url"
+    return 0
 }
 
 function web_search() {
@@ -80,13 +82,13 @@ function hashcompare() {
         echo "Please supply two files <:"
     else
         sum1=$(md5sum "$1" | cut -d " " -f1)
-            sum2=$(md5sum "$2" | cut -d " " -f1)
+        sum2=$(md5sum "$2" | cut -d " " -f1)
 
-            if [ "$sum1" = "$sum2" ]; then
-                echo "identical"
-            else
-                echo "different"
-            fi
+        if [ "$sum1" = "$sum2" ]; then
+            echo "identical"
+        else
+            echo "different"
+        fi
     fi
 }
 
@@ -106,11 +108,11 @@ function quicksublime {
 # cd and ls
 alias cd="cl"
 function cl {
-	if [ "$#" -eq 0 ]; then
-		"cd" || return
-	else
-	    "cd" "$1" || return
-	fi
+    if [ "$#" -eq 0 ]; then
+        "cd" || return
+    else
+        "cd" "$1" || return
+    fi
     ls -la --color=auto
 }
 
@@ -138,18 +140,18 @@ function s() { find . -iname "*$**" | less; }
 # Create a new directory and enter it
 mkd() {
     mkdir -p "$@"
-        cd "$@" || exit
+    cd "$@" || exit
 }
 
 # Make a temporary directory and enter it
 tmpd() {
     local dir
-        if [ $# -eq 0 ]; then
-            dir=$(mktemp -d)
-        else
-            dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
-                fi
-                cd "$dir" || exit
+    if [ $# -eq 0 ]; then
+        dir=$(mktemp -d)
+    else
+        dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+    fi
+    cd "$dir" || exit
 }
 
 # Determine size of a file or total size of a directory
@@ -158,13 +160,13 @@ fs() {
         local arg=-sbh
     else
         local arg=-sh
-            fi
-# shellcheck disable=SC2199
-            if [[ -n "$@" ]]; then
-                du $arg -- "$@"
-            else
-                du $arg -- .[^.]* *
-                    fi
+    fi
+    # shellcheck disable=SC2199
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@"
+    else
+        du $arg -- .[^.]* *
+    fi
 }
 
 # Create encrypted archives using 7zip
@@ -193,11 +195,11 @@ alias grep='grep --color=auto '
 alias cat='prettycat'
 function prettycat {
     if [[ $(awk 'END {print NR}' "$1") -gt 500 ]]
-        then
-            "cat" "$1"
+    then
+        "cat" "$1"
     else
         pygmentize -g -O bg=dark,style=colorful "$1"
-            fi
+    fi
 }
 
 # parse manpages --> 2x tab: show, 3x tab: navigate
@@ -287,38 +289,38 @@ alias n="nautilus . &"
 
 function socksproxyon {
 
-#if [ $(id -u) -ne 0 ]; then
-#  echo "This script must be run as root";
-#  return;
-#fi
+    #if [ $(id -u) -ne 0 ]; then
+    #  echo "This script must be run as root";
+    #  return;
+    #fi
 
     if [ $# -eq 2 ]
-        then
-            gsettings set org.gnome.system.proxy mode 'manual'
-            gsettings set org.gnome.system.proxy.socks host "$1"
-            gsettings set org.gnome.system.proxy.socks port "$2"
+    then
+        gsettings set org.gnome.system.proxy mode 'manual'
+        gsettings set org.gnome.system.proxy.socks host "$1"
+        gsettings set org.gnome.system.proxy.socks port "$2"
 
 
-# grep PATH /etc/environment > /tmp/nm.t;
-# printf \
-# "http_proxy=http://$1:$2/\n\
-# https_proxy=http://$1:$2/\n\
-# ftp_proxy=http://$1:$2/\n\
-# no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
-# HTTP_PROXY=http://$1:$2/\n\
-# HTTPS_PROXY=http://$1:$2/\n\
-# FTP_PROXY=http://$1:$2/\n\
-# NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
+        # grep PATH /etc/environment > /tmp/nm.t;
+        # printf \
+            # "http_proxy=http://$1:$2/\n\
+            # https_proxy=http://$1:$2/\n\
+            # ftp_proxy=http://$1:$2/\n\
+            # no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
+            # HTTP_PROXY=http://$1:$2/\n\
+            # HTTPS_PROXY=http://$1:$2/\n\
+            # FTP_PROXY=http://$1:$2/\n\
+            # NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
 
-# cat /tmp/nm.t > /etc/environment;
+        # cat /tmp/nm.t > /etc/environment;
 
 
-# printf \
-# "Acquire::http::proxy \"http://$1:$2/\";\n\
-# Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
-# Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
+        # printf \
+            # "Acquire::http::proxy \"http://$1:$2/\";\n\
+            # Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
+            # Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
 
-# rm -rf /tmp/nm.t;
+        # rm -rf /tmp/nm.t;
 
     else
         echo "Usage $0 <proxy_ip> <proxy_port>";
@@ -327,39 +329,39 @@ function socksproxyon {
 }
 
 function httpproxyon {
-#if [ $(id -u) -ne 0 ]; then
-#  echo "This script must be run as root";
-#  return;
-#fi
+    #if [ $(id -u) -ne 0 ]; then
+    #  echo "This script must be run as root";
+    #  return;
+    #fi
 
     if [ $# -eq 2 ]
-        then
+    then
 
-            gsettings set org.gnome.system.proxy mode 'manual' ;
-    gsettings set org.gnome.system.proxy.http host "$1";
-    gsettings set org.gnome.system.proxy.http port "$2";
-
-
-# grep PATH /etc/environment > /tmp/nm.t;
-# printf \
-# "http_proxy=http://$1:$2/\n\
-# https_proxy=http://$1:$2/\n\
-# ftp_proxy=http://$1:$2/\n\
-# no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
-# HTTP_PROXY=http://$1:$2/\n\
-# HTTPS_PROXY=http://$1:$2/\n\
-# FTP_PROXY=http://$1:$2/\n\
-# NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
-
-# cat /tmp/nm.t > /etc/environment;
+        gsettings set org.gnome.system.proxy mode 'manual' ;
+        gsettings set org.gnome.system.proxy.http host "$1";
+        gsettings set org.gnome.system.proxy.http port "$2";
 
 
-# printf \
-# "Acquire::http::proxy \"http://$1:$2/\";\n\
-# Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
-# Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
+        # grep PATH /etc/environment > /tmp/nm.t;
+        # printf \
+            # "http_proxy=http://$1:$2/\n\
+            # https_proxy=http://$1:$2/\n\
+            # ftp_proxy=http://$1:$2/\n\
+            # no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
+            # HTTP_PROXY=http://$1:$2/\n\
+            # HTTPS_PROXY=http://$1:$2/\n\
+            # FTP_PROXY=http://$1:$2/\n\
+            # NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
 
-# rm -rf /tmp/nm.t;
+        # cat /tmp/nm.t > /etc/environment;
+
+
+        # printf \
+            # "Acquire::http::proxy \"http://$1:$2/\";\n\
+            # Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
+            # Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
+
+        # rm -rf /tmp/nm.t;
 
     else
         echo "Usage $0 '<proxy_ip>' <proxy_port>";
@@ -368,19 +370,19 @@ function httpproxyon {
 }
 
 function proxyoff {
-#if [ $(id -u) -ne 0 ]; then
-#  echo "This script must be run as root";
-#  return;
-#fi
+    #if [ $(id -u) -ne 0 ]; then
+    #  echo "This script must be run as root";
+    #  return;
+    #fi
 
     gsettings set org.gnome.system.proxy mode 'none' ;
 
-# grep PATH /etc/environment > /tmp/nm.t;
-# cat /tmp/nm.t > /etc/environment;
+    # grep PATH /etc/environment > /tmp/nm.t;
+    # cat /tmp/nm.t > /etc/environment;
 
-# printf "" > /etc/apt/apt.conf.d/95proxies;
+    # printf "" > /etc/apt/apt.conf.d/95proxies;
 
-# rm -rf /tmp/nm.t;
+    # rm -rf /tmp/nm.t;
 }
 
 # presentation mode
@@ -407,7 +409,7 @@ function safedelete {
     else
         for f in "$@"
         do
-			# shellcheck disable=SC1012
+            # shellcheck disable=SC1012
             \rm "$f"
         done
     fi
@@ -424,7 +426,7 @@ alias dl="cd ~/Downloads"
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
 
 # View HTTP traffic
