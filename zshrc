@@ -55,6 +55,11 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins
 # Requires: autojump pacman packet
 plugins=(git autojump colored-man-pages cp extract docker zsh-autosuggestions bd nohup zsh-syntax-highlighting)
 
+# enable autojump
+if [ $commands[autojump] ]; then
+    source /usr/share/autojump/autojump.zsh
+fi
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -96,6 +101,9 @@ setopt SHARE_HISTORY
 
 # Pass CTRL+S to vim
 stty -ixon
+
+# auto start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
 
 source $ZSH/oh-my-zsh.sh
 

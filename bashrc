@@ -37,4 +37,7 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
+# auto start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
