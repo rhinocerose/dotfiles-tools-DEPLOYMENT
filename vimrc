@@ -20,6 +20,12 @@ set foldmethod=indent
 set foldlevel=99
 set mouse=a
 
+" Remap leader to ","
+let mapleader                               = ","
+let maplocalleader                          = ",,"
+set timeout timeoutlen=1500
+
+
 "enable UTF-8
 set encoding=utf-8
 set go+=a " Visual selection automatically copied to the clipboard
@@ -45,7 +51,10 @@ Plugin 'gmarik/Vundle.vim'
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_python_binary_path = '/usr/bin/python3'
-
+" Use default config
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Use leader-g to go to declaration
+nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 
 " Linting
 Plugin 'w0rp/ale'
@@ -75,10 +84,6 @@ let g:NERDDefaultAlign           = 'left'
 let g:NERDCommentEmptyLines                 = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace            = 1
-" Remap leader to ","
-let mapleader                               = ","
-let maplocalleader                          = ",,"
-set timeout timeoutlen=1500
 
 " turn on line numbers
 set nu
