@@ -132,6 +132,7 @@ Plugin 'Chiel92/vim-autoformat'
 
 " Gitgutter
 Plugin 'airblade/vim-gitgutter'
+set updatetime=100
 
 " Display help lines for indentation levels
 Plugin 'Yggdroot/indentLine'
@@ -160,6 +161,8 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'lervag/vimtex'
 let g:vimtex_view_method         = 'general'
 let g:vimtex_view_general_viewer = 'evince'
+set conceallevel=0
+let g:tex_conceal = ''
 
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'

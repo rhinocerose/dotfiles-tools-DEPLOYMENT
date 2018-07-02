@@ -102,9 +102,6 @@ setopt SHARE_HISTORY
 # Pass CTRL+S to vim
 stty -ixon
 
-# auto start tmux
-if [ "$TMUX" = "" ]; then tmux; fi
-
 source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases

@@ -15,10 +15,20 @@ alias dps="docker ps && echo && docker ps -a | grep Exited | wc -l && echo conta
 #
 # Helper Functions
 #
+
+dimages() {
+    docker images
+}
+
+dexited() {
+    docker ps -a | grep "Exited"
+}
+
 dcleanup(){
     docker system prune
 }
-dstopped(){
+
+ddstopped(){
     local name=$1
     local state
     state=$(docker inspect --format "{{.State.Running}}" "$name" 2>/dev/null)
