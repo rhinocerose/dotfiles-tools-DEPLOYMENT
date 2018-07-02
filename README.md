@@ -53,7 +53,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 - Via pip
     - ansible-lint ([ale](https://github.com/w0rp/ale))
-    - autopep8 ([vim-autoformat](https://github.com/Chiel92/vim-autoformat))
     - future ([markdown-preview](https://github.com/MikeCoder/markdown-preview.vim))
     - jedi ([deoplete-jedi](https://github.com/zchee/deoplete-jedi))
     - msgpack-python ([deoplete](https://github.com/shougo/deoplete.nvim))
@@ -248,9 +247,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [ale](https://github.com/w0rp/ale.git)
 - [ansible-vim](https://github.com/pearofducks/ansible-vim.git)
 - [delimitMate.vim](https://github.com/vim-scripts/delimitMate.vim.git)
-- [deoplete-clang2](https://github.com/tweekmonster/deoplete-clang2.git)
-- [deoplete-jedi](https://github.com/zchee/deoplete-jedi.git)
-- [deoplete.nvim](https://github.com/Shougo/deoplete.nvim.git)
 - [fzf](https://github.com/junegunn/fzf.git)
 - [fzf.vim](https://github.com/junegunn/fzf.vim.git)
 - [indentLine](https://github.com/Yggdroot/indentLine.git)
@@ -274,9 +270,15 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs.git)
 - [vim-snippets](https://github.com/honza/vim-snippets.git)
 - [vimtex](https://github.com/lervag/vimtex.git)
-- [vissort](https://github.com/yaroot/vissort.git)
 - [Vundle.vim](https://github.com/gmarik/Vundle.vim.git)
+- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe.git)
 
 # Credits
 - [Jess Frazelle](https://github.com/jessfraz)
 - [Michael Carlberg](https://github.com/jaagr)
+
+# Additional Notes
+
+## Setting up Vim
+
+- `YouCompleteMe`: Make sure ~/.vim/bundle/YouCompleteMe/install.py has been run using `python3`.

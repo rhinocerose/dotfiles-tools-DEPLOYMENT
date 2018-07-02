@@ -42,22 +42,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-" General autocomplete
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
-" deoplete tab-complete
-inoremap <expr><tab>        pumvisible() ? "\<c-n>"                        : "\<tab>"
-" Don't move to the next line after selecting a completion option
-inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+" Autocomplete
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
-" Python autocomplete
-Plugin 'zchee/deoplete-jedi'
-
-" C/C++ autocomplete
-Plugin 'tweekmonster/deoplete-clang2'
-
-" Sorting using Visual mode and :Vissort
-Plugin 'yaroot/vissort'
 
 " Linting
 Plugin 'w0rp/ale'
