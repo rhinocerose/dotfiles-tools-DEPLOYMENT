@@ -25,6 +25,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 	- i3-wm (i3)
 	- lxappearance (i3)
 	- nautilus
+	- [ranger](https://github.com/ranger/ranger/)
 	- rofi (i3)
 	- scrot
 	- wicd-gtk ([Polybar](https://github.com/jaagr/polybar))
