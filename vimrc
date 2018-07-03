@@ -53,6 +53,16 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 " Use default config
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" Also autocomplete in comments
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" Also select options with Enter
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+" Prevent blocking the view with C-y
+let g:ycm_key_list_stop_completion = ['<C-y>']
+" Invoke completion manually
+let g:ycm_key_invoke_completion = '<C-Space>'
+
 " Use leader-g to go to declaration
 nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 
@@ -63,6 +73,19 @@ Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 " hide *.pyc from nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
+" Open NERDTree with <leader>t
+:map <leader>t :NERDTreeToggle<CR>
+" Open nerdtree if no file was specified
+function! StartUp()
+   if 0 == argc()
+       NERDTree
+   end
+endfunction
+autocmd VimEnter * call StartUp()
+
+" Auto open nerdtree
+" au VimEnter *  NERDTree
+
 Plugin 'jistr/vim-nerdtree-tabs'
 
 " git integration
@@ -94,9 +117,13 @@ set clipboard=unnamed
 " Brackets auto completion
 Plugin 'delimitMate.vim'
 
-" Tagbar for coding
+" Tagbar
 " needs "ctags" installed
 Plugin 'majutsushi/tagbar'
+" Toggle Tagbar with F8
+nmap <F8> :TagbarToggle<CR>
+" Auto open tagbar when source file opened
+autocmd FileType * nested :call tagbar#autoopen(0)
 
 " Fuzzy everything
 Plugin 'junegunn/fzf'
@@ -122,6 +149,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Autoformatting
 Plugin 'Chiel92/vim-autoformat'
+" Autoformat with <leader>f
+:map <leader>f :Autoformat<CR>
 
 " Gitgutter
 Plugin 'airblade/vim-gitgutter'
@@ -134,14 +163,16 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'elzr/vim-json'
 
 " Sublime-like multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
-" Prevent clash with deoplete
-func! Multiple_cursors_before()
-    call deoplete#init#_disable()
-endfunc
-func! Multiple_cursors_after()
-    call deoplete#init#_enable()
-endfunc
+" Better use https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
+" --> /f + cgn + n/.
+" Plugin 'terryma/vim-multiple-cursors'
+" " Prevent clash with deoplete
+" func! Multiple_cursors_before()
+"     call deoplete#init#_disable()
+" endfunc
+" func! Multiple_cursors_after()
+"     call deoplete#init#_enable()
+" endfunc
 
 " Ansible
 Plugin 'pearofducks/ansible-vim'
@@ -227,29 +258,17 @@ autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.s
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype ada nnoremap <F5> :w <bar> exec '!gnatmake '.shellescape('%').' && ./'.shellescape('%:r')<CR>
 
+" Spell checking
 " Auto enable spell checking
-autocmd BufNewFile, BufRead, BufEnter   *.wiki    setlocal spell    spelllang=en
-autocmd BufNewFile, BufRead, BufEnter   *.md      setlocal spell    spelllang=en
-autocmd BufNewFile, BufRead, BufEnter   *.txt     setlocal spell    spelllang=en
-autocmd BufNewFile, BufRead, BufEnter   *.tex     setlocal spell    spelllang=de
-autocmd BufNewFile, BufRead, BufEnter   README    setlocal spell    spelllang=en
-
-" Open nerdtree if no file was specified
-"function! StartUp()
-"    if 0 == argc()
-"        NERDTree
-""    end
-"endfunction
-"autocmd VimEnter * call StartUp()
-
-" Auto open nerdtree
-" au VimEnter *  NERDTree
-
- " Open Tagbar with F8
- nmap <F8> :TagbarToggle<CR>
-
-" Auto open tagbar when source file opened
-autocmd FileType * nested :call tagbar#autoopen(0)
+au BufNewFile,BufRead,BufEnter   *.wiki    setlocal spell      spelllang=en
+au BufNewFile,BufRead,BufEnter   *.md      setlocal spell      spelllang=en
+au BufNewFile,BufRead,BufEnter   *.txt     setlocal spell      spelllang=en
+au BufNewFile,BufRead,BufEnter   *.tex     setlocal spell      spelllang=en
+au BufNewFile,BufRead,BufEnter   *README*  setlocal spell      spelllang=en
+" Set spelllang to "de" with <leader>d
+:map <leader>d :setlocal spell spelllang=de<CR>
+" Set spelllang to "en" with <leader>e
+:map <leader>e :setlocal spell spelllang=en<CR>
 
 " Regenerate spell (spl) filles upon startup if
 " the .add file has been modified
