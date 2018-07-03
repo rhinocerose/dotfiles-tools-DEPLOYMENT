@@ -20,8 +20,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export BROWSER=chromium
 export BROWSERWINDOWCLASS=Chromium
 
-export FILEMANAGER=nautilus
-export FILEMANAGERWINDOWCLASS=Nautilus
+export FILEMANAGER=ranger
+export FILEMANAGERWINDOWNAME=ranger
 
 #                 .__
 #  ________  _____|  |__
