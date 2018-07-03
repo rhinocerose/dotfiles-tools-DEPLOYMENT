@@ -6,7 +6,7 @@
 #       \/     \/     \/
 
 # include syntax highlighting
-include "$HOME/.nano/syntax-highlighting/*.nanorc"
+include "~/.nano/syntax-highlighting/*.nanorc"
 
 # use 4 spaces as tab
 set tabsize 4
