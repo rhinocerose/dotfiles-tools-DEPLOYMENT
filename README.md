@@ -34,6 +34,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 - Via pip
     - i3ipc (i3)
+    - pipenv
 
 - Misc
     - Dina font ([Polybar](https://github.com/jaagr/polybar))
