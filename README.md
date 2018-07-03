@@ -61,6 +61,10 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - unidecode ([ultisnips](https://github.com/SirVer/ultisnips.git))
     - yapf ([vim-autoformat](https://github.com/Chiel92/vim-autoformat))
 
+# General ranger dependencies for all distros
+
+- `w3m` (HTML pages and pictures)
+
 # Arch
 
 ## General dependencies
@@ -175,6 +179,11 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - exuberant-ctags ([tagbar](https://github.com/majutsushi/tagbar))
     - neovim
 
+## Ranger dependencies
+
+- Via package manager
+    - `w3m-img`
+
 # Ubuntu
 
 ## General dependencies
@@ -211,6 +220,11 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - Via package manager
     - exuberant-ctags ([tagbar](https://github.com/majutsushi/tagbar))
     - neovim ([PPA](https://github.com/neovim/neovim/wiki/Installing-Neovim))
+
+## Ranger dependencies
+
+- Via package manager
+    - `w3m-img`
 
 # Sublime plugins
 - [Ada](https://packagecontrol.io/packages/Ada)

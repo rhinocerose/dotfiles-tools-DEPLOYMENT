@@ -406,6 +406,12 @@ function safedelete {
             gvfs-trash "$f"
         done
 
+    elif [ -d "$HOME/.local/share/Trash/files" ]; then
+        for f in "$@"
+        do
+            mv "$f" "$HOME/.local/share/Trash/files"
+        done
+
     else
         for f in "$@"
         do
@@ -423,20 +429,13 @@ alias cpaste='xclip -selection clipboard -o'
 
 # Directory shortcuts
 alias dl="cd ~/Downloads"
+alias tmp="cd /tmp"
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
-
 # View HTTP traffic
 # shellcheck disable=SC2142
 alias sniff="sudo ngrep -d \$(ip -o link show | awk '{print \$2,\$9}' | grep UP | cut -f1 -d \" \" | cut -f1 -d \":\" | grep -v \"docker\" ) -t '^(GET|POST) ' 'tcp and port 80'"
 
-
-#                      .__  .__
-#   __ __  ____ _____  |  | |__|____    ______
-#  |  |  \/    \\__  \ |  | |  \__  \  /  ___/
-#  |  |  /   |  \/ __ \|  |_|  |/ __ \_\___ \
-#  |____/|___|  (____  /____/__(____  /____  >
-#             \/     \/             \/     \/

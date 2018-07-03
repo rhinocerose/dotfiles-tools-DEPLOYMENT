@@ -69,19 +69,37 @@ nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 " Linting
 Plugin 'w0rp/ale'
 
-" Nerdtree
-Plugin 'scrooloose/nerdtree'
-" hide *.pyc from nerdtree
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
-" Open NERDTree with <leader>t
-:map <leader>t :NERDTreeToggle<CR>
-" Open nerdtree if no file was specified
+" Ranger
+Plugin 'francoiscabrol/ranger.vim'
+" Ranger.vim dependency
+Plugin 'rbgrouleff/bclose.vim'
+let g:ranger_map_keys = 0
+map <leader>t :Ranger<CR>
+
+" Open ranger when vim opens a directory
+let g:ranger_replace_netrw = 1
+
+" Open ranger if no file was specified
 function! StartUp()
    if 0 == argc()
-       NERDTree
+       Ranger
    end
 endfunction
 autocmd VimEnter * call StartUp()
+
+" Nerdtree
+" Plugin 'scrooloose/nerdtree'
+" hide *.pyc from nerdtree
+" let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
+" Open NERDTree with <leader>t
+" :map <leader>t :NERDTreeToggle<CR>
+" Open nerdtree if no file was specified
+" function! StartUp()
+"    if 0 == argc()
+"        NERDTree
+"    end
+" endfunction
+" autocmd VimEnter * call StartUp()
 
 " Auto open nerdtree
 " au VimEnter *  NERDTree
