@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2034
 
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
@@ -31,7 +32,7 @@ IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
 FILE_EXTENSION="${FILE_PATH##*.}"
-FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
+FILE_EXTENSION_LOWER=$(echo "${FILE_EXTENSION}" | tr '[:upper:]' '[:lower:]')
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
