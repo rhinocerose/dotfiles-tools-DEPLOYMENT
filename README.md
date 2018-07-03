@@ -280,6 +280,14 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 # Additional Notes
 
+## General Setup
+
+### Browser Extensions
+
+- [uMatrix](https://chrome.google.com/webstore/detail/umatrix/ogfcmafjalglgifnmanfmnieipoejdcf?hl=de)
+- [Vimium](https://github.com/philc/vimium)
+
 ## Setting up Vim
 
 - `YouCompleteMe`: Make sure ~/.vim/bundle/YouCompleteMe/install.py has been run using `python3`.
+- Run `:VundleUpdate`, `:VundleInstall`, `:UpdateRemotePlugins` and `:checkhealth`.
