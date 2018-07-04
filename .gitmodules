@@ -19,3 +19,6 @@
 [submodule "fonts/Font-Awesome"]
 	path = fonts/Font-Awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
+[submodule "oh-my-zsh-custom/plugins/plugins/zsh-autosuggestions"]
+	path = oh-my-zsh-custom/plugins/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

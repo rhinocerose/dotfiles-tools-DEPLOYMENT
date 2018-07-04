@@ -80,12 +80,12 @@ map <leader>t :Ranger<CR>
 let g:ranger_replace_netrw = 1
 
 " Open ranger if no file was specified
-function! StartUp()
-   if 0 == argc()
-       Ranger
-   end
-endfunction
-autocmd VimEnter * call StartUp()
+" function! StartUp()
+"    if 0 == argc()
+"        Ranger
+"    end
+" endfunction
+" autocmd VimEnter * call StartUp()
 
 " Nerdtree
 " Plugin 'scrooloose/nerdtree'

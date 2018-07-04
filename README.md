@@ -51,14 +51,13 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 # General vim dependencies for all distros
 
 - Via package manager
-    - clang ([deoplete-clang](https://github.com/zchee/deoplete-clang), [vim-autoformat](https://github.com/Chiel92/vim-autoformat))
+    - clang ([vim-autoformat](https://github.com/Chiel92/vim-autoformat))
 
 - Via pip
     - ansible-lint ([ale](https://github.com/w0rp/ale))
     - future ([markdown-preview](https://github.com/MikeCoder/markdown-preview.vim))
-    - jedi ([deoplete-jedi](https://github.com/zchee/deoplete-jedi))
-    - msgpack-python ([deoplete](https://github.com/shougo/deoplete.nvim))
-    - neovim ([deoplete](https://github.com/shougo/deoplete.nvim))
+    - jedi ([YouCompleteMe](https://github.com/Valloric/YouCompleteMe))
+    - msgpack-python
     - unidecode ([ultisnips](https://github.com/SirVer/ultisnips.git))
     - yapf ([vim-autoformat](https://github.com/Chiel92/vim-autoformat))
 
