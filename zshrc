@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins
+ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -53,7 +53,10 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins
 # Add wisely, as too many plugins slow down shell startup.
 
 # Requires: autojump pacman packet
-plugins=(git autojump colored-man-pages cp extract docker zsh-autosuggestions bd nohup zsh-syntax-highlighting)
+plugins=(git colored-man-pages cp extract docker zsh-autosuggestions nohup zsh-syntax-highlighting zsh-completions z fz k)
+
+# Required to initialize zsh-completions
+autoload -U compinit && compinit
 
 # enable autojump
 if [ $commands[autojump] ]; then

@@ -93,19 +93,26 @@ function hashcompare() {
 }
 
 # ls stuff
+unalias l
+alias l="k -ah"
+
+# overwrite ls
+unalias ls
+alias ls="k -h"
+
 # overwrite ll
 unalias ll
-alias ll='ls -la'
+alias ll='l'
 
 # list dirs
-alias lsd="ls -lF --color | grep --color=never '^d'"
+alias lsd="k -ahd"
 
 # jump and sublime
 function quicksublime {
     j "$1" && subl3 .
 }
 
-# cd and ls
+# cd and ls/k
 alias cd="cl"
 function cl {
     if [ "$#" -eq 0 ]; then
@@ -113,7 +120,7 @@ function cl {
     else
         "cd" "$1" || return
     fi
-    ls -la --color=auto
+    l
 }
 
 # find
@@ -280,6 +287,8 @@ alias mkdir="mkdir -p"
 
 alias n="nautilus . &"
 
+# force using z instead
+alias j="echo zomfg use z!"
 #
 #  _____________  _______  ______.__.
 #  \____ \_  __ \/  _ \  \/  <   |  |
