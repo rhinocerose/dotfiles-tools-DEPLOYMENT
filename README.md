@@ -203,23 +203,22 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - `w3m-img`
 
 # VS Code plugins
-- ban.spellright
-- christian-kohler.path-intellisense
-- dracula-theme.theme-dracula
-- haaaad.ansible
-- James-Yu.latex-workshop
-- ms-python.python
-- ms-vscode.cpptools
-- PeterJausovec.vscode-docker
-- qezhu.gitlink
-- redhat.vscode-yaml
-- robertohuertasm.vscode-icons
-- Shan.code-settings-sync
-- streetsidesoftware.code-spell-checker
-- vscodevim.vim
-- wwm.better-align
-- yzhang.markdown-all-in-one
-
+- [ban.spellright](https://marketplace.visualstudio.com/items?itemName=ban.spellright)
+- [christian-kohler.path-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+- [dracula-theme.theme-dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
+- [haaaad.ansible](https://marketplace.visualstudio.com/items?itemName=haaaad.ansible)
+- [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+- [ms-python.python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- [ms-vscode.cpptools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [PeterJausovec.vscode-docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+- [qezhu.gitlink](https://marketplace.visualstudio.com/items?itemName=qezhu.gitlink)
+- [redhat.vscode-yaml](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+- [robertohuertasm.vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons)
+- [Shan.code-settings-sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
+- [streetsidesoftware.code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [vscodevim.vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+- [wwm.better-align](https://marketplace.visualstudio.com/items?itemName=wwm.better-align)
+- [yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 
 # Vim plugins
 - [ale](https://github.com/w0rp/ale.git)

@@ -36,7 +36,7 @@ gen-vim-info: ## Generate a list of installed vim plugins
 	done
 
 gen-vscode-info: ## Generate a list of VS Code plugins
-	code --list-extensions | xargs -L 1 echo "-"
+	code --list-extensions | xargs -d "\n" -rI % python -c "print('- [%](https://marketplace.visualstudio.com/items?itemName=' + '%' + ')')"
 
 .PHONY: test
 test: shellcheck ## Runs all the tests on the files in the repository.
