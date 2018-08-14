@@ -5,6 +5,10 @@
 #  |__\___  /|___|  /\____/|__|    \___  >
 #    /_____/      \/                   \/
 
+# Visual Studio Code
+.vscode
+**.vscode**
+
 # KDE directory preferences
 .directory
 

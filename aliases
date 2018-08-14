@@ -274,12 +274,10 @@ alias sshportforward="_sshportforward"
 #        \/        \/     \/
 
 
-# elite mode
-alias nano="nvim"
-alias vim="nvim"
-alias vi="nvim"
+alias nano="code"
+alias vim="code"
+alias vi="code"
 
-alias sl="subl3"
 alias pass="pass -c"
 
 alias cp="cp -r"
@@ -308,29 +306,6 @@ function socksproxyon {
         gsettings set org.gnome.system.proxy mode 'manual'
         gsettings set org.gnome.system.proxy.socks host "$1"
         gsettings set org.gnome.system.proxy.socks port "$2"
-
-
-        # grep PATH /etc/environment > /tmp/nm.t;
-        # printf \
-            # "http_proxy=http://$1:$2/\n\
-            # https_proxy=http://$1:$2/\n\
-            # ftp_proxy=http://$1:$2/\n\
-            # no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
-            # HTTP_PROXY=http://$1:$2/\n\
-            # HTTPS_PROXY=http://$1:$2/\n\
-            # FTP_PROXY=http://$1:$2/\n\
-            # NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
-
-        # cat /tmp/nm.t > /etc/environment;
-
-
-        # printf \
-            # "Acquire::http::proxy \"http://$1:$2/\";\n\
-            # Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
-            # Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
-
-        # rm -rf /tmp/nm.t;
-
     else
         echo "Usage $0 <proxy_ip> <proxy_port>";
 
@@ -349,29 +324,6 @@ function httpproxyon {
         gsettings set org.gnome.system.proxy mode 'manual' ;
         gsettings set org.gnome.system.proxy.http host "$1";
         gsettings set org.gnome.system.proxy.http port "$2";
-
-
-        # grep PATH /etc/environment > /tmp/nm.t;
-        # printf \
-            # "http_proxy=http://$1:$2/\n\
-            # https_proxy=http://$1:$2/\n\
-            # ftp_proxy=http://$1:$2/\n\
-            # no_proxy=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n\
-            # HTTP_PROXY=http://$1:$2/\n\
-            # HTTPS_PROXY=http://$1:$2/\n\
-            # FTP_PROXY=http://$1:$2/\n\
-            # NO_PROXY=\"localhost,127.0.0.1,localaddress,.localdomain.com\"\n" >> /tmp/nm.t;
-
-        # cat /tmp/nm.t > /etc/environment;
-
-
-        # printf \
-            # "Acquire::http::proxy \"http://$1:$2/\";\n\
-            # Acquire::ftp::proxy \"ftp://$1:$2/\";\n\
-            # Acquire::https::proxy \"https://$1:$2/\";\n" > /etc/apt/apt.conf.d/95proxies;
-
-        # rm -rf /tmp/nm.t;
-
     else
         echo "Usage $0 '<proxy_ip>' <proxy_port>";
 
@@ -379,19 +331,7 @@ function httpproxyon {
 }
 
 function proxyoff {
-    #if [ $(id -u) -ne 0 ]; then
-    #  echo "This script must be run as root";
-    #  return;
-    #fi
-
     gsettings set org.gnome.system.proxy mode 'none' ;
-
-    # grep PATH /etc/environment > /tmp/nm.t;
-    # cat /tmp/nm.t > /etc/environment;
-
-    # printf "" > /etc/apt/apt.conf.d/95proxies;
-
-    # rm -rf /tmp/nm.t;
 }
 
 # presentation mode

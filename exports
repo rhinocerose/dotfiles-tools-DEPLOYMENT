@@ -41,7 +41,7 @@ export UPDATE_ZSH_DAYS=7
 #   \___  >____ | |__||__|  \____/|__|
 #       \/     \/
 
-export VISUAL=nvim
+export VISUAL=code
 export EDITOR="$VISUAL"
 
 

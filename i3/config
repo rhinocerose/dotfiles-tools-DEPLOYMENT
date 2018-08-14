@@ -60,6 +60,7 @@ set $terminal "Termite"
 set $sublime "Subl3"
 set $clion "jetbrains-clion"
 set $nautilus "Nautilus"
+set $vscode "Visual Studio Code"
 
 # Assign applications to specific workspaces
 assign [class=$mail] $ws_mail
@@ -72,6 +73,7 @@ assign [class=$firefox] $ws_firefox
 assign [class=$terminal] $ws_terminal
 assign [class=$sublime] $ws_code
 assign [class=$clion] $ws_code
+assign [class=$vscode] $ws_code
 assign [class=$nautilus] $ws_files
 
 # presentation mode
@@ -89,6 +91,7 @@ for_window [class=$firefox] move to workspace $ws_firefox focus
 for_window [class=$terminal] move to workspace $ws_terminal focus
 for_window [class=$sublime] move to workspace $ws_code focus
 for_window [class=$clion] move to workspace $ws_code focus
+for_window [class=$vscode] move to workspace $ws_code focus
 for_window [class=$nautilus] move to workspace $ws_files focus
 
 # additional key bindings for application focus/start
