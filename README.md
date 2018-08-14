@@ -18,9 +18,11 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - Via package manager
 	- arandr (i3)
 	- blueman ([Polybar](https://github.com/jaagr/polybar))
+    - clang
 	- cmake
 	- dunst (i3)
 	- feh (i3)
+	- gcc
 	- git
 	- i3-wm (i3)
 	- lxappearance (i3)
@@ -35,18 +37,11 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - Via pip
     - i3ipc (i3)
     - pipenv
+    - yapf
 
 - Misc
     - Dina font ([Polybar](https://github.com/jaagr/polybar))
     - Font-Awesome ([Polybar](https://github.com/jaagr/polybar))
-
-# General sublime dependencies for all distros
-
-- Via package manager:
-    - clang ([EasyClangComplete](https://github.com/niosus/EasyClangComplete))
-    - gcc ([SublimeLinter-gcc](https://github.com/SublimeLinter/SublimeLinter-gcc))
-- Via pip
-    - flake8 ([Anaconda](https://github.com/DamnWidget/anaconda))
 
 # General vim dependencies for all distros
 
@@ -89,15 +84,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - polybar
     - trizen
     - ttf-hack
-
-## Sublime dependencies
-
-- Via package manager
-    - jdk9-openjdk ([SublimeLinter-javac](https://github.com/SublimeLinter/SublimeLinter-javac))
-
-- Via AUR
-    - sublime-text-dev
-    - trizen
 
 ## Vim dependencies
 
@@ -168,11 +154,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
     - Termite (Installed from [source](https://github.com/thestinger/termite))
 
-## Sublime dependencies
-
-- default-jdk ([SublimeLinter-javac](https://github.com/SublimeLinter/SublimeLinter-javac))
-- sublime-text package via sublime repository
-
 ## Vim dependencies
 
 - Via package manager
@@ -210,11 +191,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - Polybar (Via [GetDeb](http://www.getdeb.net/app/Polybar))
     - Termite (Install from [source](https://github.com/thestinger/termite))
 
-## Sublime
-
-- sublime-text package via sublime repository
-- default-jdk ([SublimeLinter-javac](https://github.com/SublimeLinter/SublimeLinter-javac))
-
 ## Vim dependencies
 
 - Via package manager
@@ -226,37 +202,24 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - Via package manager
     - `w3m-img`
 
-# Sublime plugins
-- [Ada](https://packagecontrol.io/packages/Ada)
-- [Alignment](https://packagecontrol.io/packages/Alignment)
-- [Anaconda](https://packagecontrol.io/packages/Anaconda)
-- [ASCII Decorator](https://packagecontrol.io/packages/ASCII%20Decorator)
-- [AutoPEP8](https://packagecontrol.io/packages/AutoPEP8)
-- [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
-- [Dockerfile Syntax Highlighting](https://packagecontrol.io/packages/Dockerfile%20Syntax%20Highlighting)
-- [EasyClangComplete](https://packagecontrol.io/packages/EasyClangComplete)
-- [Edit Command Palette](https://packagecontrol.io/packages/Edit%20Command%20Palette)
-- [Emmet](https://packagecontrol.io/packages/Emmet)
-- [FuzzyFileNav](https://packagecontrol.io/packages/FuzzyFileNav)
-- [Git](https://packagecontrol.io/packages/Git)
-- [Git Commit Message Syntax](https://packagecontrol.io/packages/Git%20Commit%20Message%20Syntax)
-- [GitGutter](https://packagecontrol.io/packages/GitGutter)
-- [GitStatus](https://packagecontrol.io/packages/GitStatus)
-- [HexViewer](https://packagecontrol.io/packages/HexViewer)
-- [JavaIME](https://packagecontrol.io/packages/JavaIME)
-- [LaTeXTools](https://packagecontrol.io/packages/LaTeXTools)
-- [Markdown Preview](https://packagecontrol.io/packages/Markdown%20Preview)
-- [MarkdownHighlighting](https://packagecontrol.io/packages/MarkdownHighlighting)
-- [Package Control](https://packagecontrol.io/packages/Package%20Control)
-- [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer)
-- [Pretty JSON](https://packagecontrol.io/packages/Pretty%20JSON)
-- [Pretty YAML](https://packagecontrol.io/packages/Pretty%20YAML)
-- [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
-- [SublimeAStyleFormatter](https://packagecontrol.io/packages/SublimeAStyleFormatter)
-- [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter)
-- [SublimeLinter-gcc](https://packagecontrol.io/packages/SublimeLinter-gcc)
-- [SublimeLinter-javac](https://packagecontrol.io/packages/SublimeLinter-javac)
-- [Theme - Flatland](https://packagecontrol.io/packages/Theme%20-%20Flatland)
+# VS Code plugins
+- ban.spellright
+- christian-kohler.path-intellisense
+- dracula-theme.theme-dracula
+- haaaad.ansible
+- James-Yu.latex-workshop
+- ms-python.python
+- ms-vscode.cpptools
+- PeterJausovec.vscode-docker
+- qezhu.gitlink
+- redhat.vscode-yaml
+- robertohuertasm.vscode-icons
+- Shan.code-settings-sync
+- streetsidesoftware.code-spell-checker
+- vscodevim.vim
+- wwm.better-align
+- yzhang.markdown-all-in-one
+
 
 # Vim plugins
 - [ale](https://github.com/w0rp/ale.git)
@@ -288,6 +251,38 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [Vundle.vim](https://github.com/gmarik/Vundle.vim.git)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe.git)
 
+# Sublime plugins (Not used anymore)
+- [Ada](https://packagecontrol.io/packages/Ada)
+- [Alignment](https://packagecontrol.io/packages/Alignment)
+- [Anaconda](https://packagecontrol.io/packages/Anaconda)
+- [ASCII Decorator](https://packagecontrol.io/packages/ASCII%20Decorator)
+- [AutoPEP8](https://packagecontrol.io/packages/AutoPEP8)
+- [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
+- [Dockerfile Syntax Highlighting](https://packagecontrol.io/packages/Dockerfile%20Syntax%20Highlighting)
+- [EasyClangComplete](https://packagecontrol.io/packages/EasyClangComplete)
+- [Edit Command Palette](https://packagecontrol.io/packages/Edit%20Command%20Palette)
+- [Emmet](https://packagecontrol.io/packages/Emmet)
+- [FuzzyFileNav](https://packagecontrol.io/packages/FuzzyFileNav)
+- [Git](https://packagecontrol.io/packages/Git)
+- [Git Commit Message Syntax](https://packagecontrol.io/packages/Git%20Commit%20Message%20Syntax)
+- [GitGutter](https://packagecontrol.io/packages/GitGutter)
+- [GitStatus](https://packagecontrol.io/packages/GitStatus)
+- [HexViewer](https://packagecontrol.io/packages/HexViewer)
+- [JavaIME](https://packagecontrol.io/packages/JavaIME)
+- [LaTeXTools](https://packagecontrol.io/packages/LaTeXTools)
+- [Markdown Preview](https://packagecontrol.io/packages/Markdown%20Preview)
+- [MarkdownHighlighting](https://packagecontrol.io/packages/MarkdownHighlighting)
+- [Package Control](https://packagecontrol.io/packages/Package%20Control)
+- [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer)
+- [Pretty JSON](https://packagecontrol.io/packages/Pretty%20JSON)
+- [Pretty YAML](https://packagecontrol.io/packages/Pretty%20YAML)
+- [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
+- [SublimeAStyleFormatter](https://packagecontrol.io/packages/SublimeAStyleFormatter)
+- [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter)
+- [SublimeLinter-gcc](https://packagecontrol.io/packages/SublimeLinter-gcc)
+- [SublimeLinter-javac](https://packagecontrol.io/packages/SublimeLinter-javac)
+- [Theme - Flatland](https://packagecontrol.io/packages/Theme%20-%20Flatland)
+
 # Credits
 - [Jess Frazelle](https://github.com/jessfraz)
 - [Michael Carlberg](https://github.com/jaagr)
@@ -305,3 +300,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 - `YouCompleteMe`: Make sure ~/.vim/bundle/YouCompleteMe/install.py has been run using `python3`.
 - Run `:VundleUpdate`, `:VundleInstall`, `:UpdateRemotePlugins` and `:checkhealth`.
+
+## Setting up VS Code
+- Install [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
+- Add GitHub token and sync settings

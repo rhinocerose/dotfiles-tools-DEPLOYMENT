@@ -35,6 +35,9 @@ gen-vim-info: ## Generate a list of installed vim plugins
 		bash -c "echo -e \"- [\$$(basename -s .git \$$(git config --get remote.origin.url))](\$$(git config --get remote.origin.url))\""; \
 	done
 
+gen-vscode-info: ## Generate a list of VS Code plugins
+	code --list-extensions | xargs -L 1 echo "-"
+
 .PHONY: test
 test: shellcheck ## Runs all the tests on the files in the repository.
 
