@@ -53,7 +53,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 # Add wisely, as too many plugins slow down shell startup.
 
 # Requires: autojump pacman packet
-plugins=(git colored-man-pages cp extract docker zsh-autosuggestions nohup zsh-syntax-highlighting zsh-completions z fz k)
+plugins=(git colored-man-pages cp extract docker zsh-autosuggestions nohup zsh-syntax-highlighting zsh-completions z fz)
 
 # Required to initialize zsh-completions
 autoload -U compinit && compinit

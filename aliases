@@ -94,25 +94,15 @@ function hashcompare() {
 
 # ls stuff
 unalias l
-alias l="k -ah"
-
-# overwrite ls
-unalias ls
-alias ls="k -h"
+alias l="ls -lah --color=auto"
 
 # overwrite ll
-unalias ll
 alias ll='l'
 
 # list dirs
-alias lsd="k -ahd"
+alias lsd="ls -lF --color | grep --color=never '^d'"
 
-# jump and sublime
-function quicksublime {
-    j "$1" && subl3 .
-}
-
-# cd and ls/k
+# cd and ls
 alias cd="cl"
 function cl {
     if [ "$#" -eq 0 ]; then
@@ -120,7 +110,7 @@ function cl {
     else
         "cd" "$1" || return
     fi
-    l
+    ls -lah --color=auto
 }
 
 # find
