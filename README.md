@@ -9,7 +9,9 @@
 
 [![Build Status](https://travis-ci.org/ps1337/Dotfiles.png?branch=master)](https://travis-ci.org/ps1337/Dotfiles)
 
-These dotfiles and all dependencies can be installed automatically using my [Dotfile-tools](https://github.com/BananaFett/Dotfile-tools).
+These dotfiles and all dependencies can be installed automatically using my [Dotfile-tools](https://github.com/ps1337/Dotfile-tools).
+
+All VS Code settings can be found [here](https://gist.github.com/ps1337/3e6b508b3ed1062546ebf2e1615a930a)
 
 # General dependencies for all distros
 
