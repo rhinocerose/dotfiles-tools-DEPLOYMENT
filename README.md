@@ -190,7 +190,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 - Additional dependencies
     - Playerctl (Installed via `.deb` from [GitHub](https://github.com/acrisci/playerctl/releases))
-    - Polybar (Via [GetDeb](http://www.getdeb.net/app/Polybar))
+    - [Compilation dependencies](https://github.com/jaagr/polybar/wiki/Compiling) of Polybar
     - Termite (Install from [source](https://github.com/thestinger/termite))
 
 ## Vim dependencies
@@ -299,7 +299,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 ## Setting up Vim
 
-- `YouCompleteMe`: Make sure ~/.vim/bundle/YouCompleteMe/install.py has been run using `python3`.
+- `YouCompleteMe`: Make sure `~/.vim/bundle/YouCompleteMe/install.py` has been run using `python3`.
 - Run `:VundleUpdate`, `:VundleInstall`, `:UpdateRemotePlugins` and `:checkhealth`.
 
 ## Setting up VS Code
