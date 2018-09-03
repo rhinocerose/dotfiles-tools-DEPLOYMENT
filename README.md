@@ -26,19 +26,24 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 	- feh (i3)
 	- gcc
 	- git
+    - gimp
+    - gparted
 	- i3-wm (i3)
 	- lxappearance (i3)
 	- nautilus
+    - pass
 	- [ranger](https://github.com/ranger/ranger/)
 	- rofi (i3)
 	- scrot
 	- wicd-gtk ([Polybar](https://github.com/jaagr/polybar))
+    - xdotool
 	- xss-lock (i3)
 	- zsh
 
 - Via pip
     - i3ipc (i3)
     - pipenv
+    - pylint
     - yapf
 
 - Misc
