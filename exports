@@ -5,23 +5,31 @@
 #  \  ___/ >    < |  |_> >  <_> )  | \/|  |  \___ \
 #   \___  >__/\_ \|   __/ \____/|__|   |__| /____  >
 #       \/      \/|__|                           \/
-# by ps
 
 if which termite >/dev/null 2>&1; then
     export TERMINAL=termite
     export TERMINALWINDOWCLASS=Termite
     export TERM=xterm-termite
 else
-    export TERM=xterm
+    export TERM=xterm-color
 fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export BROWSER=chromium
+# Use chromium if possible, fall back to firefox
 export BROWSERWINDOWCLASS=Chromium
+if [ -x "$(command -v chromium)" ]; then
+    export BROWSER=chromium
+elif [ -x "$(command -v chromium-browser)" ]; then
+    export BROWSER=chromium-browser
+else
+    # boo
+    export BROWSER=firefox
+    export BROWSERWINDOWCLASS=Firefox
+fi
 
-export FILEMANAGER=ranger
-export FILEMANAGERWINDOWNAME=ranger
+export FILEMANAGER=nautilus
+export FILEMANAGERWINDOWNAME=nautilus
 
 #                 .__
 #  ________  _____|  |__
