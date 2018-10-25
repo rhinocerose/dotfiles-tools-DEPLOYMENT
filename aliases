@@ -122,7 +122,7 @@ function quickfind {
 # grep
 alias g='quickgrep'
 function quickgrep {
-    grep -R "$1"
+    ag "$@"
 }
 
 # ps aux and grep

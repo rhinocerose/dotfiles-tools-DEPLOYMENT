@@ -78,6 +78,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - python-pip
     - python2
     - python2-pip
+    - the_silver_searcher
     - termite
     - termite-terminfo
     - xorg-xbacklight
@@ -128,6 +129,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - python2.7
     - python3
     - python3-pip
+    - silversearcher-ag
     - update-notifier
     - x11-utils
     - x11-xserver-utils
@@ -186,6 +188,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - python2.7
     - python3
     - python3-pip
+    - silversearcher-ag
     - software-properties-common
     - update-notifier
     - x11-utils
