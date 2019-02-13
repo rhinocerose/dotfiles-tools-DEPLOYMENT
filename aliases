@@ -264,9 +264,8 @@ alias sshportforward="_sshportforward"
 #        \/        \/     \/
 
 
-alias nano="code"
-alias vim="code"
-alias vi="code"
+alias nano="vim"
+alias vi="vim"
 
 alias pass="pass -c"
 

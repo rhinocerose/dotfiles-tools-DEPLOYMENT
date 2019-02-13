@@ -25,7 +25,6 @@ let mapleader                               = ","
 let maplocalleader                          = ",,"
 set timeout timeoutlen=1500
 
-
 "enable UTF-8
 set encoding=utf-8
 set go+=a " Visual selection automatically copied to the clipboard
@@ -36,6 +35,21 @@ filetype    off          " required
 let         python_highlight_all=1
 syntax      on
 colorscheme darcula
+
+
+" Put plugins and dictionaries in this dir
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let TheUndoDir = expand(vimDir . '/undo')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . TheUndoDir)
+    let &undodir = TheUndoDir
+    set undofile
+endif
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
