@@ -6,7 +6,7 @@
 #   \___  >__/\_ \|   __/ \____/|__|   |__| /____  >
 #       \/      \/|__|                           \/
 
-if which termite >/dev/null 2>&1; then
+if command -v termite >/dev/null 2>&1; then
     export TERMINAL=termite
     export TERMINALWINDOWCLASS=Termite
     export TERM=xterm-termite
