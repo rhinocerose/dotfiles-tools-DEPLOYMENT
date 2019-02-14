@@ -49,7 +49,7 @@ export UPDATE_ZSH_DAYS=7
 #   \___  >____ | |__||__|  \____/|__|
 #       \/     \/
 
-export VISUAL=code
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 
