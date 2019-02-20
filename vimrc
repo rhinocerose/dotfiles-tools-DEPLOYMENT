@@ -116,7 +116,7 @@ endfunction
 autocmd VimEnter * call StartUp()
 
 " Auto open nerdtree
-au VimEnter *  NERDTree
+" au VimEnter *  NERDTree
 
 Plugin 'jistr/vim-nerdtree-tabs'
 

@@ -14,4 +14,9 @@
 **/createSymlinks.py
 **/dotfile-tools
 
+# ranger stuff
+ranger/bookmarks
+ranger/history
+ranger/tagged
+
 fzf.zsh

@@ -276,6 +276,7 @@ alias n="nautilus . &"
 
 # force using z instead
 alias j="echo zomfg use z!"
+
 #
 #  _____________  _______  ______.__.
 #  \____ \_  __ \/  _ \  \/  <   |  |

@@ -4,6 +4,11 @@ if [ -f ~/.extras ]; then
     source ~/.extras
 fi
 
+# auto start tmux
+if [ "$TMUX" = "" ]; then
+	exec tmux
+fi
+
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
 
