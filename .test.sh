@@ -9,6 +9,7 @@ ERRORS=()
 # find all executables and run `shellcheck`
 for f in $(find . -type f \
         -not -iwholename '*.git*' \
+        -not -iwholename './tpm*' \
         -not -iwholename "./oh-my-zsh-custom*" \
         -not -iwholename "./nanorc-folder*" \
         -not -iwholename "./fzf*" | sort -u); do
