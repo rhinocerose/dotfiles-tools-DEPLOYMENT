@@ -53,6 +53,7 @@ set $ws_presOwn "notes"
 set $mail "Thunderbird"
 set $music "Spotify"
 set $messaging "Rambox"
+set $mattermost "Mattermost"
 set $xmpp "Psi-plus"
 set $chromium "Chromium"
 set $chrome "Google-chrome"
@@ -66,6 +67,7 @@ set $vscode "Visual Studio Code"
 assign [class=$mail] $ws_mail
 assign [class=$music] $ws_music
 assign [class=$messaging] $ws_messaging
+assign [class=$mattermost] $ws_messaging
 assign [class=$xmpp] $ws_messaging
 assign [class=$chromium] $ws_chromium
 assign [class=$chrome] $ws_chrome
@@ -84,6 +86,7 @@ assign [title="DS PDF Viewer - Secondary Window"] $ws_presOwn
 for_window [class=$music] move to workspace $ws_music focus
 for_window [class=$mail] move to workspace $ws_mail focus
 for_window [class=$messaging] move to workspace $ws_messaging focus
+for_window [class=$mattermost] move to workspace $ws_messaging focus
 for_window [class=$xmpp] move to workspace $ws_messaging focus
 for_window [class=$chromium] move to workspace $ws_chromium focus
 for_window [class=$chrome] move to workspace $ws_chrome focus
@@ -106,6 +109,7 @@ for_window [class="^Spotify Premium$"] border none
 for_window [class="^BKPOPENJK$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="^Rambox$"] border none
+for_window [class="^Mattermost$"] border none
 for_window [class="^Psi-plus$"] border none
 for_window [class="^Chromium$"] border none
 for_window [class="^Chrome$"] border none

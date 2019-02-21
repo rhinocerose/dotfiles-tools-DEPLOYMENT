@@ -30,6 +30,7 @@ fi
 
 export FILEMANAGER=nautilus
 export FILEMANAGERWINDOWNAME=nautilus
+export FILEMANAGERWINDOWCLASS=Nautilus
 
 #                 .__
 #  ________  _____|  |__

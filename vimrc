@@ -255,8 +255,8 @@ noremap  <C-a>    ggVG<CR>
 " Enable folding with the spacebar
 nnoremap <space>  za
 
-" Ctrl-D opens a shell.
-nmap     <silent> <C-D> :terminal<CR>
+" Ctrl-l opens a shell.
+nmap     <silent> <C-L> :terminal<CR>
 
 "docstring for folded code
 let      g:SimpylFold_docstring_preview=1
