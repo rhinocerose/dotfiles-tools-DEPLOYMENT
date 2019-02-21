@@ -36,12 +36,10 @@ function _web_search() {
 
     # define search engine URLS
     typeset -A urls
-    urls=(
-    [google]="https://www.google.com/search?q="
-    [duckduckgo]="https://www.duckduckgo.com/?q="
-    [startpage]="https://www.startpage.com/do/search?q="
-    [github]="https://github.com/search?q="
-    )
+    urls[google]="https://www.google.com/search?q="
+    urls[duckduckgo]="https://www.duckduckgo.com/?q="
+    urls[startpage]="https://www.startpage.com/do/search?q="
+    urls[github]="https://github.com/search?q="
 
     # check whether the search engine is supported
     if [[ -z "${urls[$1]}" ]]; then
