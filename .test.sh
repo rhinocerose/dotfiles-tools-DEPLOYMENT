@@ -12,6 +12,7 @@ for f in $(find . -type f \
         -not -iwholename './tpm*' \
         -not -iwholename "./oh-my-zsh-custom*" \
         -not -iwholename "./nanorc-folder*" \
+        -not -iwholename "./powerline*" \
         -not -iwholename "./fzf*" | sort -u); do
 
 
