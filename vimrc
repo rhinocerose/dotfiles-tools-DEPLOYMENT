@@ -1,6 +1,13 @@
 set nocompatible " required
-set termguicolors
-set t_Co=256
+
+set background=dark
+colorscheme solarized8
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 set tabstop=8
 set softtabstop=0
@@ -34,8 +41,6 @@ filetype    off          " required
 " make python code pretty
 let         python_highlight_all=1
 syntax      on
-colorscheme darcula
-
 
 " Put plugins and dictionaries in this dir
 let vimDir = '$HOME/.vim'
@@ -318,7 +323,3 @@ function! Repeat()
 endfunction
 " Use it as a command
 command! -nargs=* Repeat call Repeat()
-
-set background=dark
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE

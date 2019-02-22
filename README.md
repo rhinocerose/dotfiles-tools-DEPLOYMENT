@@ -78,6 +78,9 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - python-pip
     - python2
     - python2-pip
+    - powerline
+    - python-powerline
+    - python2-powerline
     - the_silver_searcher
     - termite
     - termite-terminfo
@@ -123,6 +126,9 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - libxcb-xrm-dev
     - libxcb1-dev
     - network-manager-gnome
+    - powerline
+    - python-powerline
+    - python3-powerline
     - pkg-config
     - python-pip
     - python-xcbgen
@@ -184,6 +190,9 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - fonts-hack-ttf
     - i3
     - network-manager-gnome
+    - powerline
+    - python-powerline
+    - python3-powerline
     - python-pip
     - python2.7
     - python3

@@ -1,0 +1,14 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	},
+        "segment_data": {
+		"powerline.segments.common.net.hostname": {
+			"before": ""
+		}
+	}
+}

@@ -9,10 +9,9 @@
 if command -v termite >/dev/null 2>&1; then
     export TERMINAL=termite
     export TERMINALWINDOWCLASS=Termite
-    export TERM=xterm-termite
-else
-    export TERM=xterm-color
 fi
+
+export TERM=screen-256color
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
