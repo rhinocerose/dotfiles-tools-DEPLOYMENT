@@ -15,6 +15,11 @@ set expandtab
 set shiftwidth=4
 set smarttab
 
+" Make Vim to handle long lines nicely.
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+
 " Set case sensitivity on searches
 set ignorecase   " Ignore case when searching
 set smartcase    "    but, if case is used in the pattern, DON'T ignore it
@@ -110,6 +115,9 @@ Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 " hide *.pyc from nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
+let NERDTreeShowHidden=1
+" Close nerdtree and vim on close file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Open NERDTree with <leader>t
 :map <leader>t :NERDTreeToggle<CR>
 " Open nerdtree if no file was specified
@@ -323,3 +331,34 @@ function! Repeat()
 endfunction
 " Use it as a command
 command! -nargs=* Repeat call Repeat()
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+				\ | wincmd p | diffthis
+endif
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \	exe "normal! g`\"" |
+      \ endif
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" never do this again --> :set paste <ctrl-v> :set no paste
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
