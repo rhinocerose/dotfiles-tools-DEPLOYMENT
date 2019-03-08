@@ -77,7 +77,9 @@
 		"solarized:violet": [13, "6c71c4"],
 		"solarized:blue": [4, "268bd2"],
 		"solarized:cyan": [6, "2aa198"],
-		"solarized:green": [2, "859900"]
+		"solarized:green": [2, "859900"],
+
+        "solarized:yolo": [207, "ff5fff"]
 	},
 	"gradients": {
 		"dark_GREEN_Orange_red": [
