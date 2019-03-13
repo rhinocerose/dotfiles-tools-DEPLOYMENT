@@ -208,16 +208,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'elzr/vim-json'
 
 " Sublime-like multiple cursors
-" Better use https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
-" --> /f + cgn + n/.
-" Plugin 'terryma/vim-multiple-cursors'
-" " Prevent clash with deoplete
-" func! Multiple_cursors_before()
-"     call deoplete#init#_disable()
-" endfunc
-" func! Multiple_cursors_after()
-"     call deoplete#init#_enable()
-" endfunc
+" Or use https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
+Plugin 'terryma/vim-multiple-cursors'
 
 " Ansible
 Plugin 'pearofducks/ansible-vim'
@@ -352,8 +344,10 @@ autocmd BufReadPost *
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
+nmap n nzz
+nmap p pzz
+nmap N Nzz
+nmap P Pzz
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
