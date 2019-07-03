@@ -3,7 +3,7 @@
 source ~/.extras
 
 # if more than 2 monitors
-if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 2 ]]; then
+if [[ $(xrandr | grep connected | grep -cv disconnected) -gt 2 ]]; then
     export MULTIMONITOR=1
 else
     export MULTIMONITOR=0
