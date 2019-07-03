@@ -4,6 +4,13 @@
 # shellcheck source=/dev/null
 source ~/.extras
 
+# if more than 2 monitors
+if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 2 ]]; then
+    export MULTIMONITOR=1
+else
+    export MULTIMONITOR=0
+fi
+
 # properly set $TERM
 # shellcheck source=/dev/null
 source ~/.exports

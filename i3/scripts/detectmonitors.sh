@@ -2,6 +2,13 @@
 
 source ~/.extras
 
+# if more than 2 monitors
+if [[ $(xrandr | grep connected | grep -v disconnected | wc -l) -gt 2 ]]; then
+    export MULTIMONITOR=1
+else
+    export MULTIMONITOR=0
+fi
+
 if [[ $MULTIMONITOR -eq 1 ]]; then
         monitor_mode="all"
         xrandr --output $MONITORSECONDARY --auto --output $MONITORPRIMARY --auto --left-of $MONITORSECONDARY

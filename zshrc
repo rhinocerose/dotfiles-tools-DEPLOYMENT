@@ -1,3 +1,8 @@
+# Start profiling
+# PS4=$'\\\011%D{%s%6.}\011%x\011%I\011%N\011%e\011'
+# exec 3>&2 2>/tmp/zshstart.$$.log
+# setopt xtrace prompt_subst
+
 source ~/.exports
 
 if [ -f ~/.extras ]; then
@@ -17,7 +22,7 @@ if [ "$TMUX" = "" ]; then
 fi
 
 # Path to your oh-my-zsh installation.
-ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -69,7 +74,12 @@ plugins=(git colored-man-pages cp extract docker zsh-autosuggestions nohup zsh-s
 
 # Required to initialize zsh-completions
 autoload -U compinit && compinit
-
+# autoload -Uz compinit
+# for dump in ~/.zcompdump(N.mh+24); do
+#   compinit
+# done
+# compinit -C
+#
 # enable autojump
 if [ $commands[autojump] ]; then
     source /usr/share/autojump/autojump.zsh
@@ -125,3 +135,7 @@ source ~/.inputrc
 source ~/.bindings
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# End profiling
+# unsetopt xtrace
+# exec 2>&3 3>&-
