@@ -22,10 +22,19 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/top-primary]
+tray-maxsize = 36
+tray-position = left
+tray-padding = 4
+;tray-transparent = true
+;tray-detached = true
+;tray-offset-x = 100
+
+
+dpi = 220
 enable-ipc = true
 monitor = ${env:MONITORPRIMARY:eDP1}
 width = 100%
-height = 28
+height = 45
 ;radius = 5.0
 ;fixed-center = false
 ;override-redirect = true
@@ -53,26 +62,19 @@ border-bottom-size = 2
 border-bottom-color = ${colors.bordercolor}
 
 padding-left = 0
-padding-right = 2
+padding-right = 5
 module-margin-left = 1
 module-margin-right = 2
 
 # Description - fonts determined via fc-match
-font-0 = "Dina:pixelsize=20;1"
+font-0 = "Hack:size=8;1"
 # Symbols
-font-1 = "Font Awesome 5 Free:style=Solid:size=9;1"
-font-2 = "Font Awesome 5 Brands:style=Solid:size=9;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=8;1"
+font-2 = "Font Awesome 5 Brands:style=Solid:size=8;1"
 
 modules-left = i3
 ;modules-center =
-modules-right = mediacontrol setbrightness volume battery memory cpu wifi vpncheck updates date
-
-tray-position = left
-tray-padding = 4
-tray-maxsize = 16
-;tray-transparent = true
-;tray-detached = true
-;tray-offset-x = 100
+modules-right = mediacontrol xbacklight volume battery memory cpu wifi vpncheck updates date
 
 wm-restack = bspwm
 
@@ -124,20 +126,20 @@ border-bottom-size = 2
 border-bottom-color = ${colors.bordercolor}
 
 padding-left = 0
-padding-right = 2
+padding-right = 5
 module-margin-left = 1
 module-margin-right = 2
 
 # Description
-font-0 = "Dina:pixelsize=20;1"
+font-0 = "Hack:size=8;1"
 # Symbols
-font-1 = "Font Awesome 5 Free:style=Solid:size=9;1"
-font-2 = "Font Awesome 5 Brands:style=Solid:size=9;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=8;1"
+font-2 = "Font Awesome 5 Brands:style=Solid:size=8;1"
 
 modules-left = i3
 ;modules-center = mpd
 ;modules-center = xwindow
-modules-right = setbrightness
+modules-right = xbacklight
 
 ;tray-position =
 ;tray-padding =
@@ -171,7 +173,7 @@ token = ${file:/home/jaagr/.git-token}
 ;empty-notifications = true
 
 label = %{A1:web --new-window https\://github.com/notifications&:}%notifications%%{A}
-label-padding = 2
+label-padding = 5
 label-background = #f0c209
 label-foreground = #000
 
@@ -316,12 +318,12 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-prefix =
 format-connected-prefix-foreground = #666
 format-connected-prefix-offset = -6
-label-connected = %essid% (%downspeed% | %upspeed%)
+label-connected = %essid%
 
 ; Available tags:
 ;   <label-disconnected> (default)
 format-disconnected = <label-disconnected>
-label-disconnected = %{F#e60053}%{F-}
+label-disconnected = %{F#e60053} %{F-}
 
 ; Available tags:
 ;   <label-connected> (default)
@@ -364,15 +366,6 @@ label = %{F#666}%{F-} %date%  %{F#e60053}%{F-} %time%
 date = %d.%m.%Y
 time = %H:%M
 interval = 5
-
-[module/xbacklight]
-type = internal/xbacklight
-format = <ramp> <label>
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = #666
-label-foreground = ${root.foreground}
 
 [module/volume]
 type = internal/volume
@@ -552,14 +545,16 @@ format-underline =
 format-prefix =
 format-prefix-foreground = #5b
 
-[module/setbrightness]
-type = custom/script
-exec = ~/.i3/scripts/getbrightness.sh
-interval = 5
-label = %{F#666}%{F-} %output%%
-format-prefix-foreground = #5b
-scroll-up = ~/.i3/scripts/setbrightness.sh 1
-scroll-down = ~/.i3/scripts/setbrightness.sh 0
+[module/xbacklight]
+type = internal/xbacklight
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-foreground = #666
+label-foreground = ${root.foreground}
 
 [module/mediacontrol]
 type = custom/script

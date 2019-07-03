@@ -104,6 +104,7 @@ bindsym $mod+x exec --no-startup-id ~/.i3/scripts/launchFilemanager.sh
 workspace_layout tabbed
 
 # no border
+for_window [class="^Termite$"] border none
 for_window [class="^Spotify$"] border none
 for_window [class="^Spotify Premium$"] border none
 for_window [class="^BKPOPENJK$"] border none

@@ -1,0 +1,19 @@
+output DP2
+off
+output HDMI1
+off
+output VIRTUAL1
+off
+output eDP1
+crtc 0
+mode 3000x2000
+pos 0x0
+primary
+rate 60.00
+output DP1
+crtc 1
+mode 1920x1080
+panning 3840x2160+3000+0
+pos 3000x0
+rate 60.00
+transform 2.000000,0.000000,0.000000,0.000000,2.000000,0.000000,0.000000,0.000000,1.000000

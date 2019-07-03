@@ -96,6 +96,11 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - trizen
     - ttf-hack
 
+## VSCode dependencies
+
+- Via AUR
+    - ncurses5-compat-libs (C++ auto formatting)
+
 ## Vim dependencies
 
 - Via package manager
@@ -322,3 +327,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 ## Setting up VS Code
 - Install [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
 - Add GitHub token and sync settings
+
+## Setting up tmux
+- Run tpm (tmux package manager) install routine

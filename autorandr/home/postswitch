@@ -1,0 +1,15 @@
+#!/bin/bash
+
+i3-msg restart
+
+sleep 5
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do killall -q polybar; sleep 1; done
+
+sleep 5
+
+MONITORPRIMARY="DP1" MONITORSECONDARY="eDP1" polybar -c ~/.i3/polybar/config top-primary &
+MONITORPRIMARY="DP1" MONITORSECONDARY="eDP1" polybar -c ~/.i3/polybar/config top-secondary &
