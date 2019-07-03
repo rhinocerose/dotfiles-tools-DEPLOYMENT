@@ -73,13 +73,13 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 plugins=(git colored-man-pages cp extract docker zsh-autosuggestions nohup zsh-syntax-highlighting zsh-completions z fz)
 
 # Required to initialize zsh-completions
-autoload -U compinit && compinit
-# autoload -Uz compinit
-# for dump in ~/.zcompdump(N.mh+24); do
-#   compinit
-# done
-# compinit -C
-#
+# autoload -U compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 # enable autojump
 if [ $commands[autojump] ]; then
     source /usr/share/autojump/autojump.zsh
