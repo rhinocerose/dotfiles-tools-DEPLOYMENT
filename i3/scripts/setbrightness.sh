@@ -10,3 +10,4 @@ fi
 # Minimum Value
 if [ "$(echo "$(xbacklight -get) < 30" | bc)" -eq 1 ]; then
     xbacklight -set 30
+fi

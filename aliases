@@ -90,6 +90,7 @@ function hashcompare() {
     fi
 }
 
+# shellcheck disable=SC2140
 alias ".."="cd .."
 # ls stuff
 alias l="ls -lah --color=auto"
