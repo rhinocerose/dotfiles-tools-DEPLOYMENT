@@ -15,6 +15,8 @@ export TERM=screen-256color
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+
 # Use chromium if possible, fall back to firefox
 export BROWSERWINDOWCLASS=Chromium
 if [ -x "$(command -v chromium)" ]; then
@@ -41,9 +43,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #  /_____ \/____  >___|  /
 #        \/     \/     \/
 
-export UPDATE_ZSH_DAYS=7
 
-
+export PROMPT_GEOMETRY_COLORIZE_ROOT=true
 
 #             .___.__  __
 #    ____   __| _/|__|/  |_  ___________

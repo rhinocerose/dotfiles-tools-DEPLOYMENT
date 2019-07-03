@@ -90,8 +90,8 @@ function hashcompare() {
     fi
 }
 
+alias ".."="cd .."
 # ls stuff
-unalias l
 alias l="ls -lah --color=auto"
 
 # overwrite ll

@@ -95,6 +95,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - polybar
     - trizen
     - ttf-hack
+    - antibody (ZSH)
 
 ## VSCode dependencies
 
