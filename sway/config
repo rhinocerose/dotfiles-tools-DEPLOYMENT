@@ -1,0 +1,333 @@
+# get the system specific extras first
+exec source ~/.extras
+
+# Mod is windows key
+set $mod Mod4
+
+#                 __                  __                 __
+#  _____   __ ___/  |_  ____  _______/  |______ ________/  |_
+#  \__  \ |  |  \   __\/  _ \/  ___/\   __\__  \\_  __ \   __\
+#   / __ \|  |  /|  | (  <_> )___ \  |  |  / __ \|  | \/|  |
+#  (____  /____/ |__|  \____/____  > |__| (____  /__|   |__|
+#       \/                       \/            \/
+
+exec rambox
+#                       __
+#  __  _  _____________|  | __  _________________    ____  ____   ______
+#  \ \/ \/ /  _ \_  __ \  |/ / /  ___/\____ \__  \ _/ ___\/ __ \ /  ___/
+#   \     (  <_> )  | \/    <  \___ \ |  |_> > __ \\  \__\  ___/ \___ \
+#    \/\_/ \____/|__|  |__|_ \/____  >|   __(____  /\___  >___  >____  >
+#                           \/     \/ |__|       \/     \/    \/     \/
+#
+#
+
+# Icons
+set $ws_mail "1:"
+set $ws_messaging "2:"
+set $ws_chromium "3:"
+set $ws_terminal "4:"
+set $ws_code "5:"
+set $ws_files "6:"
+set $ws_music "7:"
+
+# disabled
+#set $ws_chrome "999:"
+#set $ws_firefox "999:"
+
+set $ws_presAud "aud"
+set $ws_presOwn "notes"
+
+# Window classes
+set $mail "Thunderbird"
+set $music "Spotify"
+set $messaging "Rambox"
+set $mattermost "Mattermost"
+set $xmpp "Psi-plus"
+set $chromium "Chromium"
+set $chrome "Google-chrome"
+set $terminal "Termite"
+set $sublime "Subl3"
+set $clion "jetbrains-clion"
+set $nautilus "Nautilus"
+set $vscode "Visual Studio Code"
+
+# Assign applications to specific workspaces
+assign [class=$mail] $ws_mail
+assign [class=$music] $ws_music
+assign [class=$messaging] $ws_messaging
+assign [class=$mattermost] $ws_messaging
+assign [class=$xmpp] $ws_messaging
+assign [class=$chromium] $ws_chromium
+assign [class=$chrome] $ws_chrome
+assign [class=$firefox] $ws_firefox
+assign [class=$terminal] $ws_terminal
+assign [class=$sublime] $ws_code
+assign [class=$clion] $ws_code
+assign [class=$vscode] $ws_code
+assign [class=$nautilus] $ws_files
+
+# presentation mode
+assign [title="DS PDF Viewer - Audience Window"] $ws_presAud
+assign [title="DS PDF Viewer - Secondary Window"] $ws_presOwn
+
+# for applications not setting window class @ startup
+for_window [class=$music] move to workspace $ws_music focus
+for_window [class=$mail] move to workspace $ws_mail focus
+for_window [class=$messaging] move to workspace $ws_messaging focus
+for_window [class=$mattermost] move to workspace $ws_messaging focus
+for_window [class=$xmpp] move to workspace $ws_messaging focus
+for_window [class=$chromium] move to workspace $ws_chromium focus
+for_window [class=$chrome] move to workspace $ws_chrome focus
+for_window [class=$firefox] move to workspace $ws_firefox focus
+for_window [class=$terminal] move to workspace $ws_terminal focus
+for_window [class=$sublime] move to workspace $ws_code focus
+for_window [class=$clion] move to workspace $ws_code focus
+for_window [class=$vscode] move to workspace $ws_code focus
+for_window [class=$nautilus] move to workspace $ws_files focus
+
+# additional key bindings for application focus/start
+bindsym $mod+y exec ~/.sway/scripts/launchBrowser.sh
+bindsym $mod+x exec ~/.sway/scripts/launchFilemanager.sh
+
+workspace_layout tabbed
+
+# no border
+for_window [class="^Termite$"] border none
+for_window [class="^Spotify$"] border none
+for_window [class="^Spotify Premium$"] border none
+for_window [class="^BKPOPENJK$"] border none
+for_window [class="^Thunderbird$"] border none
+for_window [class="^Rambox$"] border none
+for_window [class="^Mattermost$"] border none
+for_window [class="^Psi-plus$"] border none
+for_window [class="^Chromium$"] border none
+for_window [class="^Chrome$"] border none
+for_window [class="^Firefox$"] border none
+
+# cycle workspaces
+bindsym $mod+Tab workspace prev
+# mod + ^
+bindsym $mod+dead_circumflex workspace next
+
+# switch to workspace
+bindsym $mod+1 workspace $ws_mail
+bindsym $mod+2 workspace $ws_messaging
+bindsym $mod+3 workspace $ws_chromium
+bindsym $mod+4 workspace $ws_terminal
+bindsym $mod+5 workspace $ws_code
+bindsym $mod+6 workspace $ws_files
+bindsym $mod+7 workspace $ws_music
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws_mail
+bindsym $mod+Shift+2 move container to workspace $ws_messaging
+bindsym $mod+Shift+3 move container to workspace $ws_chromium
+bindsym $mod+Shift+4 move container to workspace $ws_terminal
+bindsym $mod+Shift+5 move container to workspace $ws_code
+bindsym $mod+Shift+6 move container to workspace $ws_files
+bindsym $mod+Shift+7 move container to workspace $ws_music
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# locking
+bindsym $mod+ctrl+l exec ~/.sway/scripts/lock.sh
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec ~/.sway/scripts/launchTerminal.sh
+
+# kill focused window
+bindsym $mod+Escape kill
+
+# take screenshot with selection
+bindsym Print exec ~/.sway/scripts/screenshot.sh
+bindsym $mod+Print exec ~/.sway/scripts/screenshotwithselection.sh
+
+# start rofi with mod+Q
+bindsym $mod+q exec "rofi -combi-modi window,drun -show combi -modi combi"
+
+#                     .___.__                 __         .__
+#    _____   ____   __| _/|__|____      _____/  |________|  |
+#   /     \_/ __ \ / __ | |  \__  \   _/ ___\   __\_  __ \  |
+#  |  Y Y  \  ___// /_/ | |  |/ __ \_ \  \___|  |  |  | \/  |__
+#  |__|_|  /\___  >____ | |__(____  /  \___  >__|  |__|  |____/
+#        \/     \/     \/         \/       \/
+# volume
+bindsym XF86AudioMute        exec "amixer -q set Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%- unmute"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec ~/.sway/scripts/setbrightness.sh 1
+bindsym XF86MonBrightnessDown exec ~/.sway/scripts/setbrightness.sh 0
+
+# Media player controls
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec  playerctl play-pause
+bindsym XF86AudioPause exec  playerctl play-pause
+bindsym XF86AudioPrev exec  playerctl previous
+
+# Additional XF86 keys
+bindsym XF86Close kill
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec  "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# launch bar
+bar {
+    swaybar_command waybar
+}
+
+# launch dunst
+exec_always killall dunst; dunst -config ~/.config/dunst/dunstrc
+
+# alt-tab
+exec_always ~/.sway/scripts/launch-alt-tab-daemon.sh
+bindsym Mod1+Tab exec python3 $HOME/.sway/scripts/alt-tab.py --switch
+
+# move to monitor
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output right
+
+# network and bluetooth stuff
+#exec wicd-gtk -t
+exec nm-applet
+exec blueman-applet
+
+# lock
+exec ~/.sway/scripts/lock.sh &
+
+input * {
+    xkb_layout de,de
+}
+# keyboard modifications
+# disbled capslock (and lights)
+exec setxkbmap -option caps:none
+# Apply the remapped keys
+exec xmodmap $HOME/.Xmodmap
+
+#######################################################################
+# automatically start i3-config-wizard to offer the user to create a
+# keysym-based config which used their favorite modifier (alt or windows)
+#
+# i3-config-wizard will not launch if there already is a config file
+# in ~/.i3/config.
+#
+# Please remove the following exec line:
+#######################################################################
+#exec i3-config-wizard

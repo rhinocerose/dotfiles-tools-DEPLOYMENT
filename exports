@@ -6,6 +6,8 @@
 #   \___  >__/\_ \|   __/ \____/|__|   |__| /____  >
 #       \/      \/|__|                           \/
 
+export XKB_DEFAULT_LAYOUT=de
+
 if command -v termite >/dev/null 2>&1; then
     export TERMINAL=termite
     export TERMINALWINDOWCLASS=Termite
