@@ -390,3 +390,10 @@ alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -E
 # shellcheck disable=SC2142
 alias sniff="sudo ngrep -d \$(ip -o link show | awk '{print \$2,\$9}' | grep UP | cut -f1 -d \" \" | cut -f1 -d \":\" | grep -v \"docker\" ) -t '^(GET|POST) ' 'tcp and port 80'"
 
+
+# <3 Telekom
+# Execute command as soon as interweb is available
+function telekom_func {
+    while true; do sleep 1; timeout 1 ping -c 1 1.1.1.1 > /dev/null && break; done; zsh -c "$@"
+}
+alias telekom='telekom_func'
