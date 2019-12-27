@@ -69,7 +69,7 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 " Autocomplete
@@ -175,7 +175,6 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Snippets
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " Add own snippets
 set runtimepath+=~/.vim/snippets

@@ -315,8 +315,7 @@ exec_always --no-startup-id ~/.i3/polybar/launchPolybar.sh
 exec_always --no-startup-id killall dunst; dunst -config ~/.config/dunst/dunstrc
 
 # alt-tab
-# exec_always --no-startup-id ~/.i3/scripts/launch-alt-tab-daemon.sh
-# bindsym Mod1+Tab exec --no-startup-id python3 $HOME/.i3/scripts/alt-tab.py --switch
+exec_always --no-startup-id alttab -d 1 -sc 1
 
 # monitors
 # auto detect of 1 or monitors

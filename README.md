@@ -257,7 +257,6 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter.git)
 - [nerdtree](https://github.com/scrooloose/nerdtree.git)
 - [tagbar](https://github.com/majutsushi/tagbar.git)
-- [ultisnips](https://github.com/SirVer/ultisnips.git)
 - [undotree](https://github.com/mbbill/undotree.git)
 - [vim-airline](https://github.com/vim-airline/vim-airline.git)
 - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes.git)
@@ -273,7 +272,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 - [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs.git)
 - [vim-snippets](https://github.com/honza/vim-snippets.git)
 - [vimtex](https://github.com/lervag/vimtex.git)
-- [Vundle.vim](https://github.com/gmarik/Vundle.vim.git)
+- [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe.git)
 
 # Sublime plugins (Not used anymore)
