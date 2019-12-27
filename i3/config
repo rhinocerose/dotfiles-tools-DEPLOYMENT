@@ -97,6 +97,9 @@ for_window [class=$clion] move to workspace $ws_code focus
 for_window [class=$vscode] move to workspace $ws_code focus
 for_window [class=$nautilus] move to workspace $ws_files focus
 
+# force floating
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+
 # additional key bindings for application focus/start
 bindsym $mod+y exec --no-startup-id ~/.i3/scripts/launchBrowser.sh
 bindsym $mod+x exec --no-startup-id ~/.i3/scripts/launchFilemanager.sh
@@ -271,6 +274,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -311,8 +315,8 @@ exec_always --no-startup-id ~/.i3/polybar/launchPolybar.sh
 exec_always --no-startup-id killall dunst; dunst -config ~/.config/dunst/dunstrc
 
 # alt-tab
-exec_always --no-startup-id ~/.i3/scripts/launch-alt-tab-daemon.sh
-bindsym Mod1+Tab exec --no-startup-id python3 $HOME/.i3/scripts/alt-tab.py --switch
+# exec_always --no-startup-id ~/.i3/scripts/launch-alt-tab-daemon.sh
+# bindsym Mod1+Tab exec --no-startup-id python3 $HOME/.i3/scripts/alt-tab.py --switch
 
 # monitors
 # auto detect of 1 or monitors

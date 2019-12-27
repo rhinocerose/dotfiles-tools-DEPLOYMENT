@@ -1,1 +1,5 @@
-e cfg.fortunes.type = fun,tips,nsfw
+e cfg.fortunes.type = fun,tips,nsfw,creepy
+e asm.describe=true
+# e scr.rainbow = true
+eco solarized
+e dbg.slow = true

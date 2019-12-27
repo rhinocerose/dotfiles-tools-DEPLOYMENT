@@ -96,6 +96,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - trizen
     - ttf-hack
     - antibody (ZSH)
+    - alttab-git (alt-tab for i3)
 
 ## VSCode dependencies
 

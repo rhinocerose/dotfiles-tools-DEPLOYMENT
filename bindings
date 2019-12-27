@@ -14,7 +14,7 @@ bindkey "^[[1;2D" backward-word
 
 # fzf: override ctrl+t --> ctrl+w using homefolder
 fzf-homefolder() {
-  ~
+  \cd ~
   LBUFFER="${LBUFFER}~/$(__fsel)"
   local ret=$?
   zle redisplay
