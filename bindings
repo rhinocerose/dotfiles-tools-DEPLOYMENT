@@ -14,13 +14,13 @@ bindkey "^[[1;2D" backward-word
 
 # fzf: override ctrl+t --> ctrl+w using homefolder
 fzf-homefolder() {
-  \cd ~
+  \cd ~ || return
   LBUFFER="${LBUFFER}~/$(__fsel)"
   local ret=$?
   zle redisplay
   typeset -f zle-line-init >/dev/null && zle zle-line-init
   # shellcheck disable=SC1001,SC2164
-  \cd -
+  \cd - || return
   return $ret
 }
 zle     -N   fzf-homefolder
