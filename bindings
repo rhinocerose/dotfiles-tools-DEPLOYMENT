@@ -27,4 +27,11 @@ zle     -N   fzf-homefolder
 bindkey '^A' fzf-homefolder
 
 # delete current word with ctrl+w
-bindkey "^W" backward-kill-word
+# bindkey "^W" backward-kill-word
+
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey '^W' backward-kill-dir
