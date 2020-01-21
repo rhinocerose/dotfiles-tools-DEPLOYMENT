@@ -322,7 +322,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
 
 ## Setting up Vim
 
-- `YouCompleteMe`: Make sure `~/.vim/bundle/YouCompleteMe/install.py` has been run using `python3`.
+- `YouCompleteMe`: Make sure to call `python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer`.
 - Run `:VundleUpdate`, `:VundleInstall`, `:UpdateRemotePlugins` and `:checkhealth`.
 
 ## Setting up VS Code
