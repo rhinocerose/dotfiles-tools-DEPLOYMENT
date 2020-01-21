@@ -12,6 +12,10 @@
 bindkey "^[[1;2C" forward-word
 bindkey "^[[1;2D" backward-word
 
+# ctrl + arrow key
+bindkey "^[[1;5C" vi-forward-word-end
+bindkey "^[[1;5D" vi-backward-word-end
+
 # fzf: override ctrl+t --> ctrl+w using homefolder
 fzf-homefolder() {
     find ~ 2>/dev/null | fzf-tmux
@@ -29,3 +33,6 @@ backward-kill-dir () {
 
 zle -N backward-kill-dir
 bindkey '^W' backward-kill-dir
+
+bindkey '^[[A' up-history
+bindkey '^[[B' down-history
