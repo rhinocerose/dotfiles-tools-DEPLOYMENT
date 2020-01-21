@@ -93,7 +93,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 
 " Linting
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Vim-Ranger
 " Plugin 'francoiscabrol/ranger.vim'
@@ -180,9 +180,9 @@ map <c-p> :Files .<cr>
 map <c-o> :Buffers<cr>
 
 " Snippets
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 " Add own snippets
-set runtimepath+=~/.vim/snippets
+" set runtimepath+=~/.vim/snippets
 
 " Undotree
 Plugin 'mbbill/undotree'
