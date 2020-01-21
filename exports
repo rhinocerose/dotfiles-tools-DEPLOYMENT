@@ -17,7 +17,7 @@ export TERM=screen-256color
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --nocolor -g ""'
 
 # Use chromium if possible, fall back to firefox
 export BROWSERWINDOWCLASS=Chromium

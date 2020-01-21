@@ -76,7 +76,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 " Use default config
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " Also autocomplete in comments
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -85,7 +85,9 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Prevent blocking the view with C-y
 let g:ycm_key_list_stop_completion = ['<C-y>']
 " Invoke completion manually
-let g:ycm_key_invoke_completion = '<C-Space>'
+" let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Use leader-g to go to declaration
 nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
@@ -164,15 +166,18 @@ Plugin 'delimitMate.vim'
 
 " Tagbar
 " needs "ctags" installed
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 " Toggle Tagbar with F8
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 " Auto open tagbar when source file opened
-autocmd FileType * nested :call tagbar#autoopen(0)
+" autocmd FileType * nested :call tagbar#autoopen(0)
 
 " Fuzzy everything
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+map <c-space> :FZF ~<cr>
+map <c-p> :Files .<cr>
+map <c-o> :Buffers<cr>
 
 " Snippets
 Plugin 'honza/vim-snippets'

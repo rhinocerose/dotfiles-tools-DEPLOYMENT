@@ -14,14 +14,7 @@ bindkey "^[[1;2D" backward-word
 
 # fzf: override ctrl+t --> ctrl+w using homefolder
 fzf-homefolder() {
-  \cd ~ || return
-  LBUFFER="${LBUFFER}~/$(__fsel)"
-  local ret=$?
-  zle redisplay
-  typeset -f zle-line-init >/dev/null && zle zle-line-init
-  # shellcheck disable=SC1001,SC2164
-  \cd - || return
-  return $ret
+    find ~ 2>/dev/null | fzf-tmux
 }
 zle     -N   fzf-homefolder
 bindkey '^A' fzf-homefolder
@@ -33,5 +26,6 @@ backward-kill-dir () {
     local WORDCHARS=${WORDCHARS/\/}
     zle backward-kill-word
 }
+
 zle -N backward-kill-dir
 bindkey '^W' backward-kill-dir
