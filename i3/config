@@ -43,7 +43,7 @@ set $ws_files "6:"
 set $ws_music "7:"
 
 # disabled
-#set $ws_chrome "999:"
+set $ws_chrome "999:"
 #set $ws_firefox "999:"
 
 set $ws_presAud "aud"

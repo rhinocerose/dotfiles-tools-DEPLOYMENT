@@ -70,7 +70,7 @@ source ~/.dockerfunc
 source ~/.inputrc
 source ~/.bindings
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # End profiling
 # V1

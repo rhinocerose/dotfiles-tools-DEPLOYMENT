@@ -177,7 +177,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 map <c-space> :FZF ~<cr>
 map <c-p> :Files .<cr>
-map <c-o> :Buffers<cr>
+map <c-i> :Buffers<cr>
 
 " Snippets
 " Plugin 'honza/vim-snippets'
@@ -200,6 +200,9 @@ let g:airline#extensions#tabline#enabled = 1
 Plugin 'Chiel92/vim-autoformat'
 " Autoformat with <leader>f
 :map <leader>f :Autoformat<CR>
+let g:formatdef_autopep8 = "yapf"
+let g:formatters_python = ['yapf']
+
 
 " Gitgutter
 Plugin 'airblade/vim-gitgutter'

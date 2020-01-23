@@ -11,4 +11,4 @@ while pgrep -u $UID -x polybar >/dev/null; do killall -q polybar; sleep 1; done
 
 sleep 5
 
-MONITORPRIMARY="eDP1" MONITORSECONDARY="eDP1" polybar -c ~/.i3/polybar/config top-primary &
+MONITORPRIMARY="eDP-1" MONITORSECONDARY="eDP-1" polybar -c ~/.i3/polybar/config top-primary &
