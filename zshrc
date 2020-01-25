@@ -54,6 +54,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # source $ZSH/oh-my-zsh.sh
+#
 if command -v antibody > /dev/null; then
     # If plugins have not been downloaded, then download and static load in future.
     if [[ ! -e "$HOME/.zsh_plugins.sh" ]]; then
