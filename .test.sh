@@ -15,7 +15,7 @@ for f in $(find . -type f \
         -not -iwholename "./powerline*" \
         -not -iwholename "./xinitrc*" \
         -not -iwholename "./vim-plug*" \
-        -not -iwholename "./bindings*" \
+        -not -iwholename "./bindings_fzf*" \
         -not -iwholename "./fzf*" | sort -u); do
 
 
