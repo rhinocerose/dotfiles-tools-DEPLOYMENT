@@ -13,9 +13,6 @@
 [submodule "oh-my-zsh-custom/plugins/plugins/nohup"]
 	path = oh-my-zsh-custom/plugins/plugins/nohup
 	url = https://github.com/micrenda/zsh-nohup.git
-[submodule "vim-vundle"]
-	path = vim-vundle
-	url = https://github.com/VundleVim/Vundle.vim
 [submodule "fonts/Font-Awesome"]
 	path = fonts/Font-Awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
