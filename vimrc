@@ -61,19 +61,17 @@ if has('persistent_undo')
     set undofile
 endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set the runtime path to include plugins and initialize
+set rtp+=~/.vim/bundle/vim-plug/plug.vim
+call plug#begin('~/.vim/bundle')
 
-" ##################################################
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
 
 " Autocomplete
-Plugin 'ycm-core/YouCompleteMe'
+set hidden
+set nobackup
+set nowritebackup
+Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer' }
 let g:ycm_python_binary_path = '/usr/bin/python3'
 " Use default config
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -88,17 +86,17 @@ let g:ycm_key_list_stop_completion = ['<C-y>']
 " let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
 " Use leader-g to go to declaration
 nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
 " Linting
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " Vim-Ranger
-" Plugin 'francoiscabrol/ranger.vim'
+" Plug 'francoiscabrol/ranger.vim'
 " " Ranger.vim dependency
-" Plugin 'rbgrouleff/bclose.vim'
+" Plug 'rbgrouleff/bclose.vim'
 " let g:ranger_map_keys = 0
 " map <leader>t :Ranger<CR>
 "
@@ -114,7 +112,7 @@ Plugin 'dense-analysis/ale'
 " autocmd VimEnter * call StartUp()
 
 " Nerdtree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " hide *.pyc from nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.jpg$', '\.png$', '\.o$']
 let NERDTreeShowHidden=1
@@ -133,17 +131,18 @@ autocmd VimEnter * call StartUp()
 " Auto open nerdtree
 " au VimEnter *  NERDTree
 
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs', { 'on':  'NERDTreeToggle' }
 
 " git integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Manage whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
+let g:strip_whitespace_confirm=0
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " Easy commenting
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims            = 1
 " Use compact syntax for prettified multi-line comments
@@ -162,7 +161,7 @@ set nu
 set clipboard=unnamed
 
 " Brackets auto completion
-Plugin 'delimitMate.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Tagbar
 " needs "ctags" installed
@@ -173,8 +172,8 @@ Plugin 'delimitMate.vim'
 " autocmd FileType * nested :call tagbar#autoopen(0)
 
 " Fuzzy everything
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 map <c-space> :FZF ~<cr>
 map <c-p> :Files .<cr>
 map <c-i> :Buffers<cr>
@@ -185,19 +184,19 @@ map <c-i> :Buffers<cr>
 " set runtimepath+=~/.vim/snippets
 
 " Undotree
-Plugin 'mbbill/undotree'
+Plug 'mbbill/undotree'
 
 " Alignment
-Plugin 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 
 " Airline and theme
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme                      = 'zenburn'
 let g:airline#extensions#tabline#enabled = 1
 
 " Autoformatting
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 " Autoformat with <leader>f
 :map <leader>f :Autoformat<CR>
 let g:formatdef_autopep8 = "yapf"
@@ -205,35 +204,29 @@ let g:formatters_python = ['yapf']
 
 
 " Gitgutter
-Plugin 'airblade/vim-gitgutter'
-set updatetime=100
-
-" Display help lines for indentation levels
-Plugin 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+set updatetime=200
 
 " JSON
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 
 " Sublime-like multiple cursors
 " Or use https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " Ansible
-Plugin 'pearofducks/ansible-vim'
-
-" YAML
-Plugin 'chase/vim-ansible-yaml'
+Plug 'pearofducks/ansible-vim'
 
 " LaTeX
 " use <Leader><Leader>ll to compile in continuous mode
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 let g:vimtex_view_method         = 'general'
 let g:vimtex_view_general_viewer = 'evince'
 set conceallevel=0
 let g:tex_conceal = ''
 
 " EasyMotion
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 " Move to word
 map  <Leader><Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
@@ -248,10 +241,10 @@ autocmd InsertEnter * :set nohlsearch
 
 " Markdown preview
 " Use <Leader>m
-Plugin 'MikeCoder/markdown-preview.vim'
+Plug 'MikeCoder/markdown-preview.vim', { 'for': 'markdown' }
 
 "All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()           " required
 filetype plugin indent on    " required
 " ##################################################
 

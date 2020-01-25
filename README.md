@@ -75,6 +75,7 @@ General dependencies cover basic software packages, fonts and i3 dependencies.
     - chromium
     - perl (cower)
     - python
+    - light
     - python-pip
     - python2
     - python2-pip

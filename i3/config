@@ -23,7 +23,7 @@ set $mod Mod4
 #       \/                       \/            \/
 
 exec --no-startup-id thunderbird
-exec --no-startup-id rambox
+# exec --no-startup-id rambox
 #                       __
 #  __  _  _____________|  | __  _________________    ____  ____   ______
 #  \ \/ \/ /  _ \_  __ \  |/ / /  ___/\____ \__  \ _/ ___\/ __ \ /  ___/
@@ -54,7 +54,6 @@ set $mail "Thunderbird"
 set $music "Spotify"
 set $messaging "Rambox"
 set $mattermost "Mattermost"
-set $xmpp "Psi-plus"
 set $chromium "Chromium"
 set $chrome "Google-chrome"
 set $terminal "Termite"
@@ -114,7 +113,6 @@ for_window [class="^BKPOPENJK$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="^Rambox$"] border none
 for_window [class="^Mattermost$"] border none
-for_window [class="^Psi-plus$"] border none
 for_window [class="^Chromium$"] border none
 for_window [class="^Chrome$"] border none
 for_window [class="^Firefox$"] border none
@@ -336,16 +334,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id killall xss-lock; xss-lock -- ~/.i3/scripts/lock.sh &
 
 # get new wallpaper
-exec --no-startup-id ~/.i3/scripts/randomwallpaper.sh
-
-# keyboard modifications
-# disbled capslock (and lights)
-exec --no-startup-id setxkbmap -option caps:none
-# Apply the remapped keys
-exec --no-startup-id xmodmap $HOME/.Xmodmap
-
-# psi
-exec --no-startup-id psi-plus
+# exec --no-startup-id ~/.i3/scripts/randomwallpaper.sh
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
