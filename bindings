@@ -6,6 +6,7 @@
 #  /_____ \/____  >___|  /  |___  /__|___|  /\____ | |__|___|  /\___  /____  >
 #        \/     \/     \/       \/        \/      \/         \//_____/     \/
 
+# shellcheck source=/dev/null
 source ~/.bindings_fzf
 
 # backward and forward word with shift + arrow keys
