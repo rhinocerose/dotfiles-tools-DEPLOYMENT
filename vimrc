@@ -4,9 +4,9 @@ set background=dark
 colorscheme solarized8
 
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 
 set tabstop=8
@@ -26,6 +26,13 @@ set smartcase    "    but, if case is used in the pattern, DON'T ignore it
 
 set ruler   " Show line and column numbers, as well as percent of file
 set showcmd " Show partial command in status line
+set lazyredraw
+
+
+" speed up syntax highlighting
+set nocursorcolumn
+set nocursorline
+
 
 " Enable folding
 set foldmethod=indent
@@ -122,9 +129,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 :map <leader>t :NERDTreeToggle<CR>
 " Open nerdtree if no file was specified
 function! StartUp()
-   if 0 == argc()
-       NERDTree
-   end
+    if 0 == argc()
+        NERDTree
+    end
 endfunction
 autocmd VimEnter * call StartUp()
 
@@ -212,7 +219,14 @@ Plug 'elzr/vim-json'
 
 " Sublime-like multiple cursors
 " Or use https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_next_key='<C-g>'
+" let g:multi_cursor_prev_key='<C-y>'
+" let g:multi_cursor_skip_key='<C-b>'
+" let g:multi_chrsor_quit_key='<Esc>'
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " Ansible
 Plug 'pearofducks/ansible-vim'
@@ -271,19 +285,19 @@ filetype indent   on
 
 "PEP8 indent for python
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+            \ set tabstop=4 |
+            \ set softtabstop=4 |
+            \ set shiftwidth=4 |
+            \ set textwidth=79 |
+            \ set expandtab |
+            \ set autoindent |
+            \ set fileformat=unix
 
 "indent for web stuff
 au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
+            \ set tabstop=2 |
+            \ set softtabstop=2 |
+            \ set shiftwidth=2
 
 " (Compile) and run the code with F5
 autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
@@ -328,8 +342,8 @@ command! -nargs=* Repeat call Repeat()
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-				\ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
 endif
 
 " When editing a file, always jump to the last known cursor position.
@@ -338,9 +352,9 @@ endif
 " Also don't do it when the mark is in the first line, that is the default
 " position when opening a file.
 autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \	exe "normal! g`\"" |
-      \ endif
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \ exe "normal! g`\"" |
+            \ endif
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
